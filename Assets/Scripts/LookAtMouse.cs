@@ -34,5 +34,21 @@ public class LookAtMouse : MonoBehaviour
             // Set the z rotation of the sprite to this angle
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+        else
+        {
+            Vector3 LookAtPosition = Prefab2LookAt.transform.position;
+            // Make sure the z position is the same as the sprite
+            LookAtPosition.z = transform.position.z;
+
+            // Calculate the direction from the sprite to the mouse
+            Vector3 direction = LookAtPosition - transform.position;
+
+            // Calculate the angle of the direction vector,
+            // subtract 90 degrees because the sprite is facing up
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+            // Set the z rotation of the sprite to this angle
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 }
