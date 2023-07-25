@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int heal;
     public int damage;
     public int attackspeed;
+    public Vector3 moving_direction;
     
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         float distance = Vector3.Distance(player.transform.position, transform.position);
         if(distance < 8)
         {
             flag = true;
             
+        }
+        while(flag == true)
+        {
+
         }
     }
 }
