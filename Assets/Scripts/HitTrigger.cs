@@ -7,9 +7,20 @@ public class HitTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         //Debug.Log("Hit");
-        if (collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("HitPlayer");
+            //Debug.Log("HitEnemy");
+            // hit animation? audio? decrease HP?
+
+
+            // destroy bullet
+            Destroy(gameObject);
+
+            // Access the Enemy script attached to the enemy game object
+            Enemy enemy = collider.gameObject.GetComponent<Enemy>();
+
+            // Call the method to decrease health
+            enemy.DecreaseHealth(10); // 10 or any amount of health to decrease
         }
     }
 
