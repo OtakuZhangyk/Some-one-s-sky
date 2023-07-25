@@ -362,6 +362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 4542358363710064093, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
+      propertyPath: Prefab2LookAt
+      value: 
+      objectReference: {fileID: 1861805937}
     - target: {fileID: 6378785419960384596, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
       propertyPath: m_RootOrder
       value: -1

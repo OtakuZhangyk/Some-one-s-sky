@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LookAtMouse : MonoBehaviour
 {
-    public GameObject Prefab2LookAt = null; // null = look at mouse cursor
+    public GameObject Prefab2LookAt; // null = look at mouse cursor
     
     // Start is called before the first frame update
     void Start()
