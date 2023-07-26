@@ -1272,13 +1272,13 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6304163360008573915, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
-      propertyPath: heal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6304163360008573915, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1861805937}
+    - target: {fileID: 6304163360008573915, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1864677435}
     - target: {fileID: 7330104017560215219, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
       propertyPath: m_RootOrder
       value: 1
