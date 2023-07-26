@@ -21,11 +21,14 @@ class item {
     public float bulletSpeed = 0;
     public float defend = 1.0f;//hurt rate
 }
+
+
 public class ItemManager : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject character;
     
+
     private List<item> itemList = new List<item>();
     private int itemListLength;
 
@@ -50,6 +53,17 @@ public class ItemManager : MonoBehaviour
         //rollItems();
     }
 
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+
     // enemy dies, random drop rate, call rollItem
     // roll three items
     // pass index int, name and description strings to buttons 
@@ -67,9 +81,9 @@ public class ItemManager : MonoBehaviour
         while (item3 == item2 || item3 == item1)
             item3 = Random.Range(1,itemListLength + 1);
         
-        
-        void showButtonChangeText (GameObject button, int itemIndex)
+        void showButtonChangeText(GameObject button, int itemIndex)
         {
+            PauseGame();
             // show buttons
             button.SetActive(true);
             // pass item index
@@ -86,13 +100,31 @@ public class ItemManager : MonoBehaviour
         showButtonChangeText(button3, item3);
     }
 
+
     public void giveItem(int itemIndex)
     {
         // hide buttons
         button1.SetActive(false);
         button2.SetActive(false);
         button3.SetActive(false);
-        Debug.Log("chose item " + itemList[itemIndex - 1].name);
+        ResumeGame();
+        //Debug.Log("chose item " + itemList[itemIndex - 1].name);
+
+        Attributes AttributesScript = character.GetComponent<Attributes>();
+        AttributesScript.items.Add(itemIndex);
+        //change attributes
+        /*public float damage;
+        public float attackSpeed;
+        public float HPMax;//fly need hp, hurt reduce hp
+        public float currentHP;
+        public float resourceMultiple;//rate of get more resources
+        public float autoHP;
+        public int bulletNumber;
+        public float moveSpeed;
+        public int bulletLevel;
+        public float bulletSpeed;
+        public float defend;//hurt rate*/
+        
     }
 
 
