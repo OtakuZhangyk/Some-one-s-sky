@@ -24,6 +24,9 @@ public class Attributes : MonoBehaviour
         
     }
 
+    // called when an item is added to inventory
+    //public void getItem(item )
+
     // Update is called once per frame
     void Update()
     {
