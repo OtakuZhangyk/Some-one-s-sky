@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class itemButton : MonoBehaviour
+public class ItemButton : MonoBehaviour
 {
     public int itemIndex;
     public GameObject gameManager;
@@ -14,8 +14,8 @@ public class itemButton : MonoBehaviour
 
     public void onChoseItem()
     {
-        itemManager itemManager = gameManager.GetComponent<itemManager>();
-        itemManager.giveItem(itemIndex);
+        ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
+        itemManagerScript.giveItem(itemIndex);
     }
 
     // Update is called once per frame
