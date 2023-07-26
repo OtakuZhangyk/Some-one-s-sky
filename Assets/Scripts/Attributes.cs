@@ -18,14 +18,13 @@ public class Attributes : MonoBehaviour
     public float defend;//hurt rate
     public List<int> itemNum;
 
+    public 
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // called when an item is added to inventory
-    //public void getItem(item )
 
     // Update is called once per frame
     void Update()
