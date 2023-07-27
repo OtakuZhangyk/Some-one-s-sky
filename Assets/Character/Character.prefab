@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4542358363710064093}
   - component: {fileID: -3417382365777622355}
   - component: {fileID: 5291908104217742703}
+  - component: {fileID: 5630498669782271420}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -193,3 +194,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &5630498669782271420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679787528188282402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1021470be9567488c9495186450809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 0
+  baseAttackSpeed: 0
+  baseHPMax: 0
+  baseResourceMultiple: 0
+  baseAutoHP: 0
+  baseBulletNumber: 0
+  baseMoveSpeed: 0
+  baseBulletSpeed: 0
+  baseDefend: 0
+  damageModifier: 0
+  attackSpeedModifier: 0
+  HPMaxModifier: 0
+  resourceMultipleModifier: 0
+  autoHPModifier: 0
+  bulletNumberModifier: 0
+  moveSpeedModifier: 0
+  bulletSpeedModifier: 0
+  defendModifier: 0
+  baseBulletLevel: 0
+  bulletLevelModifier: 0
+  currentHP: 0
+  items: 

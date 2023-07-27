@@ -39,9 +39,49 @@ public class Attributes : MonoBehaviour
         
     }
 
-    void UpdateAttributes()
+    public float GetDamage()
     {
-        
+        return baseDamage * damageModifier;
+    }
+
+    public float GetAttackSpeed()
+    {
+        return baseAttackSpeed * attackSpeedModifier;
+    }
+
+    public float GetHPMax()
+    {
+        return baseHPMax * HPMaxModifier;
+    }
+
+    public float GetResourceMultiple()
+    {
+        return baseResourceMultiple * resourceMultipleModifier;
+    }
+
+    public float GetAutoHP()
+    {
+        return baseAutoHP * autoHPModifier;
+    }
+
+    public float GetBulletNumber()
+    {
+        return baseBulletNumber * bulletNumberModifier;
+    }
+
+    public float GetMoveSpeed()
+    {
+        return baseMoveSpeed * moveSpeedModifier;
+    }
+
+    public float GetBulletSpeed()
+    {
+        return baseBulletSpeed * bulletSpeedModifier;
+    }
+
+    public float GetDefend()
+    {
+        return baseDefend * defendModifier;
     }
 
     // Update is called once per frame

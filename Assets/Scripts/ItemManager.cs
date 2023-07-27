@@ -8,7 +8,9 @@ using Random = UnityEngine.Random;
 
 class item {
     public int index;
-    public string name;
+    public string name = "Test Item";
+    public string description = "Test Description";
+    public string effectDescription = "Test Effect Description";
     public float damage = 0;
     public float attackSpeed = 0;
     public float HPMax = 0 ;//fly need hp, hurt reduce hp
@@ -44,9 +46,13 @@ public class ItemManager : MonoBehaviour
         button2 = canvas.transform.Find("Button2").gameObject;
         button3 = canvas.transform.Find("Button3").gameObject;
         
-        itemList.Add(new item {index = 1, name = "Lazor Gun", damage = 1, attackSpeed = 1, bulletSpeed = 1});
-        itemList.Add(new item {index = 2, name = "Solar Panel", HPMax = 10, autoHP = 1, defend = 0.9f});
-        itemList.Add(new item {index = 3, name = "Overclock Mode", damage = 2, attackSpeed = 1, autoHP = -2, defend = 0.8f});
+        itemList.Add(new item {index = 0, name = "Lazor Gun", damage = 1, attackSpeed = 1, bulletSpeed = 1});
+        itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 10, autoHP = 1, defend = 0.9f});
+        itemList.Add(new item {index = 2, name = "Overclock Mode", damage = 2, attackSpeed = 1, autoHP = -2, defend = 0.8f});
+        itemList.Add(new item {index = 3, name = "Dimensional Siphon", 
+            description = "A forbidden technology that drains resources from parallel universes.", 
+            effectDescription = "Increases resource multiple by 2, but reduces HPmax by 10%.", 
+            resourceMultiple = 2, HPMax = 0.9f});
 
         itemListLength = itemList.Count;
         // Debug
@@ -73,13 +79,13 @@ public class ItemManager : MonoBehaviour
     // roll three items
     public void rollItems()
     {
-        int item1 = Random.Range(1,itemListLength + 1);
-        int item2 = Random.Range(1,itemListLength + 1);
+        int item1 = Random.Range(0,itemListLength);
+        int item2 = Random.Range(0,itemListLength);
         while (item2 == item1)
-            item2 = Random.Range(1,itemListLength + 1);
-        int item3 = Random.Range(1,itemListLength + 1);
+            item2 = Random.Range(0,itemListLength);
+        int item3 = Random.Range(0,itemListLength);
         while (item3 == item2 || item3 == item1)
-            item3 = Random.Range(1,itemListLength + 1);
+            item3 = Random.Range(0,itemListLength);
         
         void showButtonChangeText(GameObject button, int itemIndex)
         {
@@ -89,10 +95,14 @@ public class ItemManager : MonoBehaviour
             // pass item index
             ItemButton itemButtonScript = button.GetComponent<ItemButton>();
             itemButtonScript.itemIndex = itemIndex;
-            // get TMP
-            TMP_Text tmp = button.GetComponentInChildren<TMP_Text>();
+            // get TMPs
+            TMP_Text nameTMP = button.transform.Find("NameTMP").GetComponent<TMP_Text>();
+            TMP_Text descriptionTMP = button.transform.Find("DescriptionTMP").GetComponent<TMP_Text>();
+            TMP_Text effectTMP = button.transform.Find("EffectTMP").GetComponent<TMP_Text>();
             // change texts in buttons 
-            tmp.text = itemList[itemIndex - 1].name;
+            nameTMP.text = itemList[itemIndex].name;
+            descriptionTMP.text = itemList[itemIndex].description;
+            effectTMP.text = itemList[itemIndex].effectDescription;
         }
 
         showButtonChangeText(button1, item1);
@@ -108,7 +118,7 @@ public class ItemManager : MonoBehaviour
         button2.SetActive(false);
         button3.SetActive(false);
         ResumeGame();
-        Debug.Log("chose item " + itemList[itemIndex - 1].name);
+        Debug.Log("chose item " + itemList[itemIndex].name);
 
         Attributes AttributesScript = character.GetComponent<Attributes>();
         AttributesScript.items.Add(itemIndex);
