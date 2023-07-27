@@ -59,15 +59,7 @@ public class ItemManager : MonoBehaviour
         //rollItems();
     }
 
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
-    }
+    
 
 
     // enemy dies, random drop rate, call rollItem
@@ -89,7 +81,6 @@ public class ItemManager : MonoBehaviour
         
         void showButtonChangeText(GameObject button, int itemIndex)
         {
-            PauseGame();
             // show buttons
             button.SetActive(true);
             // pass item index
@@ -117,7 +108,6 @@ public class ItemManager : MonoBehaviour
         button1.SetActive(false);
         button2.SetActive(false);
         button3.SetActive(false);
-        ResumeGame();
         Debug.Log("chose item " + itemList[itemIndex].name);
 
         Attributes AttributesScript = character.GetComponent<Attributes>();
