@@ -29,7 +29,7 @@ public class ItemManager : MonoBehaviour
     public GameObject character;
     
 
-    private List<item> itemList = new List<item>();
+    private List<item> itemList = new List<item>();//all items store in this list
     private int itemListLength;
 
     private GameObject button1;
@@ -112,6 +112,20 @@ public class ItemManager : MonoBehaviour
 
         Attributes AttributesScript = character.GetComponent<Attributes>();
         AttributesScript.items.Add(itemIndex);
+
+        AttributesScript.damageModifier += itemList[itemIndex].damage;
+        AttributesScript.attackSpeedModifier += itemList[itemIndex].attackSpeed;
+        AttributesScript.HPMaxModifier += itemList[itemIndex].HPMax;
+        AttributesScript.resourceMultipleModifier += itemList[itemIndex].resourceMultiple;
+        AttributesScript.autoHPModifier += itemList[itemIndex].autoHP;
+        AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
+        AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
+        AttributesScript.bulletSpeedModifier += itemList[itemIndex].bulletSpeed;
+        AttributesScript.defendModifier += itemList[itemIndex].defend;
+
+        AttributesScript.bulletLevelModifier += itemList[itemIndex].bulletLevel;
+
+
         //change attribute modifiers
         /*
         // current attributes = base atteibutes +/* modifier
@@ -130,8 +144,9 @@ public class ItemManager : MonoBehaviour
         
         public float currentHP;
         */
-        
+
     }
+
 
 
     // Update is called once per frame
