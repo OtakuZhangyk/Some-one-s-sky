@@ -9,18 +9,45 @@ public class Fire : MonoBehaviour
     float lastFire = 0.0f; // time between last fired and current
     //CharacterController controller;
 
+    private float bulletSpeed;
+    private float bulletDamage;
+    private string owner;
+
     void SpawnBullet()//float angle, Vector3 direction)
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);//Quaternion.Euler(0, 0, angle));
+        if (owner == "Player")
+        {
+            Attributes AttributesScript = GetComponent<Attributes>();
+            bulletSpeed = AttributesScript.GetBulletSpeed();
+            bulletDamage = AttributesScript.GetDamage();
+        }
+        else if (owner == "Enemy")
+        {
+            Enemy EnemtScript = GetComponent<Enemy>();
+            bulletSpeed = EnemtScript.bulletSpeed;
+            bulletDamage = EnemtScript.damage;
+        }
+
         
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         //bulletScript.direction = direction;
+        bulletScript.speed = bulletSpeed;
+        bulletScript.damage = bulletDamage;
+        bulletScript.owner = owner;
     }
     
     // Start is called before the first frame update
     void Start()
     {
         //controller = GetComponent<CharacterController>();
+        // determine the owner of the bullet by tag
+        owner = gameObject.tag;
+        if (owner == "Enemy")
+        {
+            Enemy EnemtScript = GetComponent<Enemy>();
+            timeBetweenFires = 1.0f/EnemtScript.attackSpeed;
+        }
     }
 
     // Update is called once per frame
@@ -46,11 +73,23 @@ public class Fire : MonoBehaviour
 
         // Set the z rotation of the sprite to this angle
         //transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        if (Input.GetButton("Fire1") && lastFire >= timeBetweenFires)
+        if (owner == "Player")
         {
-            SpawnBullet();//angle, direction);
-            lastFire = 0.0f;
+            if (Input.GetButton("Fire1") && lastFire >= timeBetweenFires)
+            {
+                SpawnBullet();//angle, direction);
+                lastFire = 0.0f;
+            }
         }
+        else if (owner == "Enemy")
+        {
+            if (lastFire >= timeBetweenFires)
+            {
+                SpawnBullet();
+                lastFire = 0.0f;
+            }
+        
+        }
+        
     }
 }

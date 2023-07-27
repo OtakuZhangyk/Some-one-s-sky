@@ -115,6 +115,7 @@ public class ItemManager : MonoBehaviour
 
         AttributesScript.damageModifier += itemList[itemIndex].damage;
         AttributesScript.attackSpeedModifier += itemList[itemIndex].attackSpeed;
+        AttributesScript.GetAttackSpeed();
         AttributesScript.HPMaxModifier += itemList[itemIndex].HPMax;
         AttributesScript.resourceMultipleModifier += itemList[itemIndex].resourceMultiple;
         AttributesScript.autoHPModifier += itemList[itemIndex].autoHP;

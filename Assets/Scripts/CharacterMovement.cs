@@ -5,11 +5,13 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     CharacterController controller;
-    public float moveSpeed = 10.0f;
+    private float moveSpeed;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        Attributes AttributesScript = GetComponentInChildren<Attributes>();
+        moveSpeed = AttributesScript.GetMoveSpeed();
     }
 
     // Update is called once per frame

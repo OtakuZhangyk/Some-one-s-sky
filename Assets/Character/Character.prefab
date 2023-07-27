@@ -206,23 +206,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1021470be9567488c9495186450809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 0
-  baseAttackSpeed: 0
+  baseDamage: 10
+  baseAttackSpeed: 2
   baseHPMax: 0
   baseResourceMultiple: 0
   baseAutoHP: 0
   baseBulletNumber: 0
-  baseMoveSpeed: 0
-  baseBulletSpeed: 0
+  baseMoveSpeed: 10
+  baseBulletSpeed: 10
   baseDefend: 0
-  damageModifier: 0
-  attackSpeedModifier: 0
+  damageModifier: 1
+  attackSpeedModifier: 2
   HPMaxModifier: 0
   resourceMultipleModifier: 0
   autoHPModifier: 0
   bulletNumberModifier: 0
-  moveSpeedModifier: 0
-  bulletSpeedModifier: 0
+  moveSpeedModifier: 1
+  bulletSpeedModifier: 1
   defendModifier: 0
   baseBulletLevel: 0
   bulletLevelModifier: 0

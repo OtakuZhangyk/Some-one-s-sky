@@ -10,13 +10,14 @@ public class Enemy : MonoBehaviour
     public GameObject gameManager;
     public int gold;
     public float rate;//random rate give random item
-    public int heal;
-    public int damage;
-    public int attackSpeed;
+    public float heal;
+    public float damage;
+    public float attackSpeed;
+    public float bulletSpeed;
     public float speed;
     public float alartDistance;
     public float keepDistance;
-    public Vector3 moving_direction;
+    //public Vector3 moving_direction;
     
     private float xSpeed;
     private bool foundPlayer;
@@ -51,6 +52,8 @@ public class Enemy : MonoBehaviour
                 LookAtMouse LookAtScript = GetComponent<LookAtMouse>();
                 LookAtScript.enabled = true;
                 // keep firing script enabled
+                Fire FireScript = GetComponent<Fire>();
+                FireScript.enabled = true;
             }
         }
         else
@@ -76,7 +79,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void DecreaseHealth(int amountOfDamage)
+    public void DecreaseHealth(float amountOfDamage)
     {
         heal -= amountOfDamage;
         Debug.Log(heal);
@@ -96,6 +99,8 @@ public class Enemy : MonoBehaviour
             LookAtMouse LookAtScript = GetComponent<LookAtMouse>();
             LookAtScript.enabled = true;
             // keep firing script enabled
+            Fire FireScript = GetComponent<Fire>();
+            FireScript.enabled = true;
         }
     }
 }

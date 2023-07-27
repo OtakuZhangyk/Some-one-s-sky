@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 3609966401257806580}
   - component: {fileID: -1242962507503652145}
   - component: {fileID: -7546691855246088656}
-  - component: {fileID: -5638067921620038647}
   - component: {fileID: -4265693856502622363}
   - component: {fileID: -8584362681658415853}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Player
+  m_TagString: Undefined
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &-1242962507503652145
 SpriteRenderer:
@@ -101,18 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!114 &-5638067921620038647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4262995024743419156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f992009848e9447bbe21c9e297ba53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  damage: 0
+  owner: 
 --- !u!60 &-4265693856502622363
 PolygonCollider2D:
   m_ObjectHideFlags: 0

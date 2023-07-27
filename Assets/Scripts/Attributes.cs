@@ -36,7 +36,7 @@ public class Attributes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetAttackSpeed();
     }
 
     public float GetDamage()
@@ -46,6 +46,13 @@ public class Attributes : MonoBehaviour
 
     public float GetAttackSpeed()
     {
+        void UpdateTimeBetweenAttacks()
+        {
+            Fire FireScript = GetComponent<Fire>();
+            FireScript.timeBetweenFires = 1/(baseAttackSpeed * attackSpeedModifier);
+        }
+
+        UpdateTimeBetweenAttacks();
         return baseAttackSpeed * attackSpeedModifier;
     }
 
@@ -83,6 +90,18 @@ public class Attributes : MonoBehaviour
     {
         return baseDefend * defendModifier;
     }
+
+    // called on getting hit 
+    public void DecreaseHealth(float amount)
+    {
+        currentHP -= amount;
+        Debug.Log("Player HP: " + currentHP);
+        if (currentHP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
