@@ -32,10 +32,6 @@ public class Attributes : MonoBehaviour
 
     public List<int> items;
 
-<<<<<<< HEAD
-    public 
-=======
->>>>>>> 593da664e72adc8a10a5a3d9af9d5548f72e362c
 
     // Start is called before the first frame update
     void Start()
