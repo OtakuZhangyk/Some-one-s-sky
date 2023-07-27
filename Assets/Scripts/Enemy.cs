@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour
 {
     public GameObject player;
+    public GameObject gameManager;
     public int gold;
     public float rate;//random rate give random item
     public int heal;
@@ -77,7 +78,15 @@ public class Enemy : MonoBehaviour
         heal -= amountOfDamage;
         Debug.Log(heal);
         if (heal <= 0)
+        {
             Destroy(gameObject);
+            
+            // random drop rate, TBD
+
+            // call roll item
+            ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
+            itemManagerScript.rollItems();
+        }
         if (!foundPlayer)
         {
             foundPlayer = true;

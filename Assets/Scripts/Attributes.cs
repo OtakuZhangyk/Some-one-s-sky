@@ -16,7 +16,7 @@ public class Attributes : MonoBehaviour
     public int bulletLevel;
     public float bulletSpeed;
     public float defend;//hurt rate
-    public List<int> itemNum;
+    public List<int> items;
 
     public 
 

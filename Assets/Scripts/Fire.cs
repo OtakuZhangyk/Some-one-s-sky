@@ -9,12 +9,12 @@ public class Fire : MonoBehaviour
     float lastFire = 0.0f;
     CharacterController controller;
 
-    void SpawnBullet(float angle, Vector3 direction)
+    void SpawnBullet()//float angle, Vector3 direction)
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle));
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);//Quaternion.Euler(0, 0, angle));
         
         Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.direction = direction;
+        //bulletScript.direction = direction;
     }
     
     // Start is called before the first frame update
@@ -49,7 +49,7 @@ public class Fire : MonoBehaviour
 
         if (Input.GetButton("Fire1") && lastFire >= timeBetweenFires)
         {
-            SpawnBullet(angle, direction);
+            SpawnBullet();//angle, direction);
             lastFire = 0.0f;
         }
     }

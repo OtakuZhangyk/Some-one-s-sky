@@ -21,24 +21,48 @@ class item {
     public float bulletSpeed = 0;
     public float defend = 1.0f;//hurt rate
 }
-public class itemManager : MonoBehaviour
+
+
+public class ItemManager : MonoBehaviour
 {
     public GameObject canvas;
+    public GameObject character;
     
+
     private List<item> itemList = new List<item>();
     private int itemListLength;
+
+    private GameObject button1;
+    private GameObject button2;
+    private GameObject button3;
     
     // Start is called before the first frame update
     void Start()
     {
+        // get buttons
+        button1 = canvas.transform.Find("Button1").gameObject;
+        button2 = canvas.transform.Find("Button2").gameObject;
+        button3 = canvas.transform.Find("Button3").gameObject;
+        
         itemList.Add(new item {index = 1, name = "Lazor Gun", damage = 1, attackSpeed = 1, bulletSpeed = 1});
         itemList.Add(new item {index = 2, name = "Solar Panel", HPMax = 10, autoHP = 1, defend = 0.9f});
         itemList.Add(new item {index = 3, name = "Overclock Mode", damage = 2, attackSpeed = 1, autoHP = -2, defend = 0.8f});
 
         itemListLength = itemList.Count;
         // Debug
-        rollItems();
+        //rollItems();
     }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
 
     // enemy dies, random drop rate, call rollItem
     // roll three items
@@ -57,37 +81,50 @@ public class itemManager : MonoBehaviour
         while (item3 == item2 || item3 == item1)
             item3 = Random.Range(1,itemListLength + 1);
         
-        
-        // get buttons
-        GameObject button1 = canvas.transform.Find("Button1").gameObject;
-        // show buttons
-        button1.SetActive(true);
-        // pass item index
-        itemButton itemButtonScript1 = button1.GetComponent<itemButton>();
-        itemButtonScript1.itemIndex = item1;
-        // get TMP
-        TMP_Text tmp1 = button1.GetComponentInChildren<TMP_Text>();
-        // change texts in buttons 
-        tmp1.text = itemList[item1 - 1].name;
+        void showButtonChangeText(GameObject button, int itemIndex)
+        {
+            PauseGame();
+            // show buttons
+            button.SetActive(true);
+            // pass item index
+            ItemButton itemButtonScript = button.GetComponent<ItemButton>();
+            itemButtonScript.itemIndex = itemIndex;
+            // get TMP
+            TMP_Text tmp = button.GetComponentInChildren<TMP_Text>();
+            // change texts in buttons 
+            tmp.text = itemList[itemIndex - 1].name;
+        }
 
-        GameObject button2 = canvas.transform.Find("Button2").gameObject;
-        button2.SetActive(true);
-        itemButton itemButtonScript2 = button2.GetComponent<itemButton>();
-        itemButtonScript2.itemIndex = item2;
-        TMP_Text tmp2 = button2.GetComponentInChildren<TMP_Text>();
-        tmp2.text = itemList[item2 - 1].name;
-
-        GameObject button3 = canvas.transform.Find("Button3").gameObject;
-        button3.SetActive(true);
-        itemButton itemButtonScript3 = button3.GetComponent<itemButton>();
-        itemButtonScript3.itemIndex = item3;
-        TMP_Text tmp3 = button3.GetComponentInChildren<TMP_Text>();
-        tmp3.text = itemList[item3 - 1].name;
+        showButtonChangeText(button1, item1);
+        showButtonChangeText(button2, item2);
+        showButtonChangeText(button3, item3);
     }
+
 
     public void giveItem(int itemIndex)
     {
-        Debug.Log("chose item " + itemList[itemIndex - 1].name);
+        // hide buttons
+        button1.SetActive(false);
+        button2.SetActive(false);
+        button3.SetActive(false);
+        ResumeGame();
+        //Debug.Log("chose item " + itemList[itemIndex - 1].name);
+
+        Attributes AttributesScript = character.GetComponent<Attributes>();
+        AttributesScript.items.Add(itemIndex);
+        //change attributes
+        /*public float damage;
+        public float attackSpeed;
+        public float HPMax;//fly need hp, hurt reduce hp
+        public float currentHP;
+        public float resourceMultiple;//rate of get more resources
+        public float autoHP;
+        public int bulletNumber;
+        public float moveSpeed;
+        public int bulletLevel;
+        public float bulletSpeed;
+        public float defend;//hurt rate*/
+        
     }
 
 

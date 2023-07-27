@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector3 direction;
+    //public Vector3 direction;
     public float speed;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction.normalized * speed * Time.deltaTime;
+        transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
     }
 
     void OnBecameInvisible()

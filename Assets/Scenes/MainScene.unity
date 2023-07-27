@@ -253,7 +253,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -99
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1272,13 +1272,13 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6304163360008573915, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
-      propertyPath: heal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6304163360008573915, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1861805937}
+    - target: {fileID: 6304163360008573915, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1864677435}
     - target: {fileID: 7330104017560215219, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
       propertyPath: m_RootOrder
       value: 1
