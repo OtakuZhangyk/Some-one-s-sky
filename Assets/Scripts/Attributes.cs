@@ -18,12 +18,12 @@ public class Attributes : MonoBehaviour
     public float damageModifier;
     public float attackSpeedModifier;
     public float HPMaxModifier;
-    public float resourceMultipleModifier;//rate of get more resources
+    public float resourceMultipleModifier;
     public float autoHPModifier;
     public int bulletNumberModifier;
     public float moveSpeedModifier;
     public float bulletSpeedModifier;
-    public float defendModifier;//hurt rate
+    public float defendModifier;
     
     public int baseBulletLevel;
     public int bulletLevelModifier;

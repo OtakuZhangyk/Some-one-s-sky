@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
             // move to y+
             transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
 
-            // 
+            // enemy found player
             if(distance < alartDistance)
             {
                 foundPlayer = true;
@@ -55,16 +55,19 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            // enemy move to player
             if (distance > keepDistance + 1)
             {
                 transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
                 //Debug.Log("closer");
             }
+            // enemy move to its left or right
             else if (distance <= keepDistance + 1 && distance >= keepDistance - 1)
             {
                 transform.Translate(new Vector3(xSpeed, 0.0f, 0.0f) * Time.deltaTime);
                 //Debug.Log("keep");
             }
+            // enemy try to get away from player
             else if (distance < keepDistance - 1)
             {
                 transform.Translate(new Vector3(xSpeed, backSpeed, 0.0f) * Time.deltaTime);
