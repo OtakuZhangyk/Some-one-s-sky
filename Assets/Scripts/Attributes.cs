@@ -39,6 +39,11 @@ public class Attributes : MonoBehaviour
         
     }
 
+    void UpdateAttributes()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {

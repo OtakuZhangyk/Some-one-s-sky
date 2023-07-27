@@ -108,11 +108,13 @@ public class ItemManager : MonoBehaviour
         button2.SetActive(false);
         button3.SetActive(false);
         ResumeGame();
-        //Debug.Log("chose item " + itemList[itemIndex - 1].name);
+        Debug.Log("chose item " + itemList[itemIndex - 1].name);
 
         Attributes AttributesScript = character.GetComponent<Attributes>();
         AttributesScript.items.Add(itemIndex);
+        
         //change attribute modifiers
+        
         /*
         // current attributes = base atteibutes +/* modifier
         public float damageModifier;
