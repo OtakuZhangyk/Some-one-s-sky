@@ -112,18 +112,24 @@ public class ItemManager : MonoBehaviour
 
         Attributes AttributesScript = character.GetComponent<Attributes>();
         AttributesScript.items.Add(itemIndex);
-        //change attributes
-        /*public float damage;
-        public float attackSpeed;
-        public float HPMax;//fly need hp, hurt reduce hp
+        //change attribute modifiers
+        /*
+        // current attributes = base atteibutes +/* modifier
+        public float damageModifier;
+        public float attackSpeedModifier;
+        public float HPMaxModifier;
+        public float resourceMultipleModifier;//rate of get more resources
+        public float autoHPModifier;
+        public int bulletNumberModifier;
+        public float moveSpeedModifier;
+        public float bulletSpeedModifier;
+        public float defendModifier;//hurt rate
+        
+        public int baseBulletLevel;
+        public int bulletLevelModifier;
+        
         public float currentHP;
-        public float resourceMultiple;//rate of get more resources
-        public float autoHP;
-        public int bulletNumber;
-        public float moveSpeed;
-        public int bulletLevel;
-        public float bulletSpeed;
-        public float defend;//hurt rate*/
+        */
         
     }
 
