@@ -1194,6 +1194,11 @@ Transform:
   m_Father: {fileID: 1861805939}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1230259610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 679787528188282402, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
+  m_PrefabInstance: {fileID: 4622758441183293077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1435203122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1206,6 +1211,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 763022255}
+    - target: {fileID: -7360390523413782603, guid: 823a3341e03d6d7479f9731490881d86, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1230259610}
     - target: {fileID: 796390495412090783, guid: 823a3341e03d6d7479f9731490881d86, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1527,10 +1536,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1861805939}
     m_Modifications:
-    - target: {fileID: 465742947904258895, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 679787528188282402, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
       propertyPath: m_Name
       value: Character
