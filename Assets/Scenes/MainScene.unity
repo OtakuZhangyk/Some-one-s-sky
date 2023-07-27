@@ -1199,6 +1199,40 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 679787528188282402, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
   m_PrefabInstance: {fileID: 4622758441183293077}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1230259616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230259610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1021470be9567488c9495186450809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 0
+  baseAttackSpeed: 0
+  baseHPMax: 0
+  baseResourceMultiple: 0
+  baseAutoHP: 0
+  baseBulletNumber: 0
+  baseMoveSpeed: 0
+  baseBulletSpeed: 0
+  baseDefend: 0
+  damageModifier: 0
+  attackSpeedModifier: 0
+  HPMaxModifier: 0
+  resourceMultipleModifier: 0
+  autoHPModifier: 0
+  bulletNumberModifier: 0
+  moveSpeedModifier: 0
+  bulletSpeedModifier: 0
+  defendModifier: 0
+  baseBulletLevel: 0
+  bulletLevelModifier: 0
+  currentHP: 0
+  items: 
 --- !u!1001 &1435203122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1587,5 +1621,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 679787528188282402, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1230259616}
   m_SourcePrefab: {fileID: 100100000, guid: 2ac06fb17dcdaf443979cdc0eea3e146, type: 3}
