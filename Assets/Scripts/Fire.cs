@@ -24,9 +24,9 @@ public class Fire : MonoBehaviour
         }
         else if (owner == "Enemy")
         {
-            Enemy EnemtScript = GetComponent<Enemy>();
-            bulletSpeed = EnemtScript.bulletSpeed;
-            bulletDamage = EnemtScript.damage;
+            Enemy EnemyScript = GetComponent<Enemy>();
+            bulletSpeed = EnemyScript.bulletSpeed;
+            bulletDamage = EnemyScript.damage;
         }
 
         
@@ -45,8 +45,8 @@ public class Fire : MonoBehaviour
         owner = gameObject.tag;
         if (owner == "Enemy")
         {
-            Enemy EnemtScript = GetComponent<Enemy>();
-            timeBetweenFires = 1.0f/EnemtScript.attackSpeed;
+            Enemy EnemyScript = GetComponent<Enemy>();
+            timeBetweenFires = 1.0f/EnemyScript.attackSpeed;
         }
     }
 
