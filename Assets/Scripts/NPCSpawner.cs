@@ -40,7 +40,7 @@ public class NPCSpawner : MonoBehaviour
         spawnPosition.z = 0; 
 
         // Don't spawn enemies too close to the player
-        if ((spawnPosition - transform.position).magnitude < safeRadius) return;
+        if (spawnPosition.magnitude < safeRadius) return;
         
         // if there is not enough spawn point, dont spawn
         if (spawnPoint < enemyCost) return;
@@ -53,7 +53,7 @@ public class NPCSpawner : MonoBehaviour
         // Get a random rotation
         Quaternion randomRotation = Quaternion.Euler(0,0,Random.Range(0, 360));
         // Instantiate the enemy at the spawn position
-        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, randomRotation);
+        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPosition + transform.position, randomRotation);
 
         LookAtMouse LookAtMouseScript = spawnedEnemy.GetComponent<LookAtMouse>();
         LookAtMouseScript.Prefab2LookAt = gameObject;
@@ -80,6 +80,7 @@ public class NPCSpawner : MonoBehaviour
             if ((enemy.transform.position - transform.position).magnitude > despawnRadius)
             {
                 Destroy(enemy);
+                spawnPoint += enemyCost;
             }
         }
     }

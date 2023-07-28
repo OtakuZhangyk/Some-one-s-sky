@@ -9,6 +9,9 @@ public class Bullet : MonoBehaviour
     public float damage;
     public string owner;
 
+    float lastSeconds = 10f;
+    float timer = 0f;
+
     // hit detection
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -54,6 +57,11 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
+        timer += Time.deltaTime;
+        if (timer >= lastSeconds)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnBecameInvisible()
