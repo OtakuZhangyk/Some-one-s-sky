@@ -70,7 +70,7 @@ MonoBehaviour:
   damage: 5
   attackSpeed: 1
   bulletSpeed: 10
-  speed: 3
+  speed: 2
   alartDistance: 8
   keepDistance: 4
 --- !u!212 &8261366880881597225
