@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1136750860316966180}
   - component: {fileID: -56809727514338445}
   - component: {fileID: 7527836031661266821}
+  - component: {fileID: 1469342403708670564}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -31,11 +32,11 @@ Transform:
   m_GameObject: {fileID: 3311045375507740130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 1.5, y: -1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8910136174085029338
 MonoBehaviour:
@@ -169,11 +170,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.14, y: 0.14999999}
-      - {x: -0.14, y: -0.14}
-      - {x: 0.14999999, y: -0.14}
-      - {x: 0.14999999, y: 0.13}
-      - {x: 0.13, y: 0.14999999}
+    - - {x: 0.0056619644, y: 0.45639157}
+      - {x: -0.209328, y: 0.40611535}
+      - {x: -0.3054657, y: 0.23589492}
+      - {x: -0.1888348, y: -0.37928978}
+      - {x: 0.008712769, y: -0.45523024}
+      - {x: 0.17930068, y: -0.37440637}
+      - {x: 0.3013872, y: 0.23743618}
+      - {x: 0.2130183, y: 0.40882385}
   m_UseDelaunayMesh: 0
 --- !u!114 &-56809727514338445
 MonoBehaviour:
@@ -223,3 +227,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4262995024743419156, guid: f7f3e6bf8d9f4c546b4fb144f7f3f0c2, type: 3}
   timeBetweenFires: 0
+--- !u!95 &1469342403708670564
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311045375507740130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2fe243036c6aab741873dce16e3a2786, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
