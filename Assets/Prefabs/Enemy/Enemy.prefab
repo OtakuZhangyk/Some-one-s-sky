@@ -221,5 +221,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8182cfb35d16944955d66bcd6070f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4262995024743419156, guid: d18c096869914ef41a35190fceed0794, type: 3}
+  bulletPrefab: {fileID: 4262995024743419156, guid: f7f3e6bf8d9f4c546b4fb144f7f3f0c2, type: 3}
   timeBetweenFires: 0

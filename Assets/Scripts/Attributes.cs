@@ -73,7 +73,7 @@ public class Attributes : MonoBehaviour
 
     public float GetBulletNumber()
     {
-        return baseBulletNumber * bulletNumberModifier;
+        return baseBulletNumber + bulletNumberModifier;
     }
 
     public float GetMoveSpeed()

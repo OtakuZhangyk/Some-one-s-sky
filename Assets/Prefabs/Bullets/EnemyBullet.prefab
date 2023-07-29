@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4265693856502622363}
   - component: {fileID: -8584362681658415853}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: db9e1d32e1805934c80f593bd6263155, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd6283daf119f0d41b9e3cc25bd0d5e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,14 +146,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.04, y: 0.089999996}
-      - {x: -0.06, y: 0.049999997}
-      - {x: -0.06, y: -0.089999996}
-      - {x: -0.02, y: -0.099999994}
-      - {x: 0.04, y: -0.099999994}
-      - {x: 0.06, y: -0.07}
-      - {x: 0.06, y: 0.08}
-      - {x: 0.02, y: 0.089999996}
+    - - {x: -0.024751853, y: 0.044820305}
+      - {x: -0.04701084, y: -0.0059098676}
+      - {x: -0.025082715, y: -0.055949796}
+      - {x: 0.014255565, y: -0.055881344}
+      - {x: 0.036280658, y: -0.004711926}
+      - {x: 0.016046777, y: 0.04538504}
   m_UseDelaunayMesh: 0
 --- !u!50 &-8584362681658415853
 Rigidbody2D:

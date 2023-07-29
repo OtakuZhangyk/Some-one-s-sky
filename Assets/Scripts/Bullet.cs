@@ -22,6 +22,13 @@ public class Bullet : MonoBehaviour
             // hit animation? audio? decrease HP?
 
 
+            if (collider.gameObject.CompareTag("Bullet"))
+            {
+                if (collider.gameObject.GetComponent<Bullet>().owner == owner)
+                {
+                    return;
+                }
+            }
             // destroy bullet
             Destroy(gameObject);
 
