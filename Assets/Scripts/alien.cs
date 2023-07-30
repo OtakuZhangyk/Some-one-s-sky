@@ -41,7 +41,7 @@ public class alien : MonoBehaviour
 
     void OnBecameVisible()
     {
-        Debug.Log("Object is in player's field of view");
+        //Debug.Log("Object is in player's field of view");
         gameManager.GetComponent<ShowAlienProfile>().ShowProfile();
     }
 }
