@@ -1049,7 +1049,7 @@ PrefabInstance:
     - target: {fileID: -8074354081143219711, guid: 838211cbaef81f44f9054a15187ba7d8, type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 1864677435}
+      objectReference: {fileID: 1230259610}
     - target: {fileID: 3311045375507740130, guid: 838211cbaef81f44f9054a15187ba7d8, type: 3}
       propertyPath: m_Name
       value: Alien (1)
@@ -1702,7 +1702,7 @@ PrefabInstance:
     - target: {fileID: -8074354081143219711, guid: 838211cbaef81f44f9054a15187ba7d8, type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 1864677435}
+      objectReference: {fileID: 1230259610}
     - target: {fileID: 3311045375507740130, guid: 838211cbaef81f44f9054a15187ba7d8, type: 3}
       propertyPath: m_Name
       value: Alien
