@@ -6,13 +6,19 @@ public class alien : MonoBehaviour
 {
     //public Camera playerCamera;
     //private SpriteRenderer spriteRenderer;
-    public GameObject gameManager;
+    public GameObject player;
 
+    public float speed;
+    public float alartDistance;
+
+    private GameObject childKeyE;
+    private bool foundPlayer;
     // Start is called before the first frame update
     void Start()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
-
+        childKeyE = transform.GetChild(0).gameObject;
+        foundPlayer = false;
     }
 
     // Update is called once per frame
@@ -29,6 +35,32 @@ public class alien : MonoBehaviour
             // The object is not in the player's field of view
             Debug.Log("Object is not in player's field of view");
         }*/
+        // calculate distance between self and player
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        // move to y+
+        transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
+        if (!foundPlayer)
+        {
+            // move to y+
+            //transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
+
+            // enemy found player
+            if(distance < alartDistance)
+            {
+                foundPlayer = true;
+                childKeyE.SetActive(true);
+            }
+        }
+        else
+        {
+            // move to y+
+            //transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
+            if(distance > alartDistance + 0.5f)
+            {
+                foundPlayer = false;
+                childKeyE.SetActive(false);
+            }
+        }
     }
 
     /*
@@ -42,6 +74,6 @@ public class alien : MonoBehaviour
     void OnBecameVisible()
     {
         //Debug.Log("Object is in player's field of view");
-        gameManager.GetComponent<ShowAlienProfile>().ShowProfile();
+        player.GetComponent<ShowAlienProfile>().ShowProfile();
     }
 }
