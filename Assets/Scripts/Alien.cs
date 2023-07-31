@@ -7,7 +7,9 @@ public class Alien : MonoBehaviour
     //public Camera playerCamera;
     //private SpriteRenderer spriteRenderer;
     public GameObject player;
+    public GameObject gameManager;
 
+    public float HP;
     public float speed;
     public float alartDistance;
 
@@ -79,9 +81,9 @@ public class Alien : MonoBehaviour
 
     public void DecreaseHealth(float amountOfDamage, string owner)
     {
-        heal -= amountOfDamage;
-        Debug.Log(heal);
-        if (heal <= 0)
+        HP -= amountOfDamage;
+        Debug.Log(HP);
+        if (HP <= 0)
         {
             Destroy(gameObject);
             

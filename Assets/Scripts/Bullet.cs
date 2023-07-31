@@ -51,19 +51,19 @@ public class Bullet : MonoBehaviour
                         Alien alien = collider.gameObject.GetComponent<Alien>();
 
                         // Call the method to decrease health
-                        alien.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                        alien.DecreaseHealth(damage, owner); // 10 or any amount of health to decrease
                     }
                 }
-                else if (collider.gameObject.CompareTag("Player") && owner == "Enemy")
+                else if (owner == "Enemy")
                 {
-                    Attributes AttributesScript = collider.gameObject.GetComponent<Attributes>();
+                    if (collider.gameObject.CompareTag("Player"))
+                    {
+                        Attributes AttributesScript = collider.gameObject.GetComponent<Attributes>();
 
-                    AttributesScript.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                        AttributesScript.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                    }
                 }
-                else if (collider.gameObject.CompareTag("Alien") && owner == "Player")
-                {
 
-                }
             }
             
         }
