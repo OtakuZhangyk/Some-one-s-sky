@@ -11,16 +11,31 @@ public class Alien : MonoBehaviour
 
     public float HP;
     public float speed;
-    public float alartDistance;
+    public float showKeyEDistance;
+
+    public int gold;
+    public float rate;//random rate give random item
+    public float damage;
+    public float attackSpeed;
+    public float bulletSpeed;
+    public float keepDistance;
+
+    private float xSpeed;
+    private float backSpeed;
 
     private GameObject childKeyE;
-    private bool foundPlayer;
+    private bool friendly;
     // Start is called before the first frame update
     void Start()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
         childKeyE = transform.GetChild(0).gameObject;
-        foundPlayer = false;
+        friendly = true;
+
+        xSpeed = Random.Range(-4,5) * speed * 0.25f;
+        if (xSpeed == 0.0f)
+            xSpeed = speed * 0.25f;
+        backSpeed = -0.25f * speed;
     }
 
     // Update is called once per frame
@@ -39,28 +54,51 @@ public class Alien : MonoBehaviour
         }*/
         // calculate distance between self and player
         float distance = Vector3.Distance(player.transform.position, transform.position);
-        // move to y+
-        transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
-        if (!foundPlayer)
+        if (friendly)
         {
             // move to y+
-            //transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
-
-            // enemy found player
-            if(distance < alartDistance)
+            transform.Translate(new Vector3(0.0f, 0.5f * speed, 0.0f) * Time.deltaTime);
+            if (!childKeyE.activeSelf)
             {
-                foundPlayer = true;
-                childKeyE.SetActive(true);
+                // move to y+
+                //transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
+
+                // show keyE
+                if(distance < showKeyEDistance)
+                {
+                    childKeyE.SetActive(true);
+                }
+            }
+            else
+            {
+                // move to y+
+                //transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
+                // hide keyE
+                if(distance > showKeyEDistance + 0.5f)
+                {
+                    childKeyE.SetActive(false);
+                }
             }
         }
         else
         {
-            // move to y+
-            //transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
-            if(distance > alartDistance + 0.5f)
+            // enemy move to player
+            if (distance > keepDistance + 1)
             {
-                foundPlayer = false;
-                childKeyE.SetActive(false);
+                transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
+                //Debug.Log("closer");
+            }
+            // enemy move to its left or right
+            else if (distance <= keepDistance + 1 && distance >= keepDistance - 1)
+            {
+                transform.Translate(new Vector3(xSpeed, 0.0f, 0.0f) * Time.deltaTime);
+                //Debug.Log("keep");
+            }
+            // enemy try to get away from player
+            else if (distance < keepDistance - 1)
+            {
+                transform.Translate(new Vector3(xSpeed, backSpeed, 0.0f) * Time.deltaTime);
+                //Debug.Log("away");
             }
         }
     }
@@ -93,9 +131,9 @@ public class Alien : MonoBehaviour
             ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
             itemManagerScript.rollItems();
         }
-        if (!foundPlayer)
+        if (owner == "Player")
         {
-            foundPlayer = true;
+            friendly = false;
             LookAtMouse LookAtScript = GetComponent<LookAtMouse>();
             LookAtScript.enabled = true;
             // keep firing script enabled

@@ -28,6 +28,12 @@ public class Fire : MonoBehaviour
             bulletSpeed = EnemyScript.bulletSpeed;
             bulletDamage = EnemyScript.damage;
         }
+        else if (owner == "Alien")
+        {
+            Alien AlienScript = GetComponent<Alien>();
+            bulletSpeed = AlienScript.bulletSpeed;
+            bulletDamage = AlienScript.damage;
+        }
 
         
         Bullet bulletScript = bullet.GetComponent<Bullet>();
@@ -81,7 +87,7 @@ public class Fire : MonoBehaviour
                 lastFire = 0.0f;
             }
         }
-        else if (owner == "Enemy")
+        else// if (owner == "Enemy")
         {
             if (lastFire >= timeBetweenFires)
             {

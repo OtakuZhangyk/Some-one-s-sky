@@ -13,8 +13,13 @@ public class KeyE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Interact"))
+        {
+            // show panel
+            Debug.Log("Interacting with KeyE");
+        }
     }
+    
 
     void LateUpdate()
     {

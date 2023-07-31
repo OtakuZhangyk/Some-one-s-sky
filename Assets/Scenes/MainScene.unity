@@ -1763,6 +1763,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -73.327
       objectReference: {fileID: 0}
+    - target: {fileID: 7527836031661266821, guid: 838211cbaef81f44f9054a15187ba7d8, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4262995024743419156, guid: c46ccf552ce564446ba339e396b49cb9, type: 3}
     - target: {fileID: 8910136174085029338, guid: 838211cbaef81f44f9054a15187ba7d8, type: 3}
       propertyPath: Prefab2LookAt
       value: 

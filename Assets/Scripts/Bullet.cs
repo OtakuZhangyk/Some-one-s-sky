@@ -63,9 +63,16 @@ public class Bullet : MonoBehaviour
                         AttributesScript.DecreaseHealth(damage); // 10 or any amount of health to decrease
                     }
                 }
+                else if (owner == "Alien")
+                {
+                    if (collider.gameObject.CompareTag("Player"))
+                    {
+                        Attributes AttributesScript = collider.gameObject.GetComponent<Attributes>();
 
+                        AttributesScript.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                    }
+                }
             }
-            
         }
     }
 

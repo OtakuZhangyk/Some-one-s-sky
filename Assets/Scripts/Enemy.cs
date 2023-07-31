@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public GameObject player;
     public GameObject gameManager;
+    
     public int gold;
     public float rate;//random rate give random item
     public float heal;

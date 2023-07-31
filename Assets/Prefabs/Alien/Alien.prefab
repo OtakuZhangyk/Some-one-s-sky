@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8182cfb35d16944955d66bcd6070f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  timeBetweenFires: 0
+  bulletPrefab: {fileID: 4262995024743419156, guid: c46ccf552ce564446ba339e396b49cb9, type: 3}
+  timeBetweenFires: 1
 --- !u!95 &5264763087502651773
 Animator:
   serializedVersion: 5
@@ -212,7 +212,13 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   HP: 1000
   speed: 3
-  alartDistance: 4
+  showKeyEDistance: 3
+  gold: 0
+  rate: 0
+  damage: 20
+  attackSpeed: 1.5
+  bulletSpeed: 12
+  keepDistance: 5
 --- !u!1001 &2849035336063857139
 PrefabInstance:
   m_ObjectHideFlags: 0
