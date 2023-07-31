@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4262995024743419156, guid: c46ccf552ce564446ba339e396b49cb9, type: 3}
-  timeBetweenFires: 1
+  timeBetweenFires: 0
 --- !u!95 &5264763087502651773
 Animator:
   serializedVersion: 5
