@@ -54,6 +54,11 @@ public class Fire : MonoBehaviour
             Enemy EnemyScript = GetComponent<Enemy>();
             timeBetweenFires = 1.0f/EnemyScript.attackSpeed;
         }
+        else if (owner == "Alien")
+        {
+            Alien AlienScript = GetComponent<Alien>();
+            timeBetweenFires = 1.0f/AlienScript.attackSpeed;
+        }
     }
 
     // Update is called once per frame
