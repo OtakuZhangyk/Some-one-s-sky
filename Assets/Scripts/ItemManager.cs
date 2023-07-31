@@ -53,6 +53,42 @@ public class ItemManager : MonoBehaviour
             description = "A forbidden technology that drains resources from parallel universes.", 
             effectDescription = "Increases resource multiple by 2, but reduces HPmax by 10%.", 
             resourceMultiple = 2, HPMax = 0.9f});
+        itemList.Add(new item
+        {
+            index = 4,
+            name = "Stardust Shell",
+            description = "An armor piece crafted from the remnants of fallen stars.",
+            effectDescription = "Increases the ship's max HP by 20%. Offers a 15% boost in the ship's defend rate due to its stardust composition, making it harder for enemy projectiles to penetrate.",
+            HPMax = 1.2f,
+            defend = 0.85f
+        });
+        itemList.Add(new item
+        {
+            index = 5,
+            name = "Meteorite Thruster",
+            description = "A propulsion engine designed using the dense matter found in meteorites.",
+            effectDescription = "Increases the ship's move speed by 30%, allowing you to evade enemy fire and travel through the map at a faster pace. Also, it improves bullet speed by 20% due to the explosive force it creates.",
+            moveSpeed = 1.3f,
+            bulletSpeed = 1.2f
+        });
+        itemList.Add(new item
+        {
+            index = 6,
+            name = "Plasma Infuser",
+            description = "A high-tech device that injects plasma into your weapon systems.",
+            effectDescription = "Increases damage by 25% by supercharging your weapons with volatile plasma. Also, it boosts attack speed by 10% due to improved energy flow. ",
+            damage = 1.25f,
+            attackSpeed = 1.1f
+        });
+        itemList.Add(new item
+        {
+            index = 7,
+            name = "Nebula Medikit",
+            description = "An advanced medikit infused with regenerative particles found in nebulae.",
+            effectDescription = "Boosts auto recover HP by 30%, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
+            autoHP = 1.3f,
+            HPMax = 1.1f
+        });
 
         itemListLength = itemList.Count;
         // Debug
