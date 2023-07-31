@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class alien : MonoBehaviour
+public class Alien : MonoBehaviour
 {
     //public Camera playerCamera;
     //private SpriteRenderer spriteRenderer;
@@ -75,5 +75,30 @@ public class alien : MonoBehaviour
     {
         //Debug.Log("Object is in player's field of view");
         player.GetComponent<ShowAlienProfile>().ShowProfile();
+    }
+
+    public void DecreaseHealth(float amountOfDamage, string owner)
+    {
+        heal -= amountOfDamage;
+        Debug.Log(heal);
+        if (heal <= 0)
+        {
+            Destroy(gameObject);
+            
+            // random drop rate, TBD
+
+            // call roll item
+            ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
+            itemManagerScript.rollItems();
+        }
+        if (!foundPlayer)
+        {
+            foundPlayer = true;
+            LookAtMouse LookAtScript = GetComponent<LookAtMouse>();
+            LookAtScript.enabled = true;
+            // keep firing script enabled
+            Fire FireScript = GetComponent<Fire>();
+            FireScript.enabled = true;
+        }
     }
 }

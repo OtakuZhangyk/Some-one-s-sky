@@ -37,17 +37,32 @@ public class Bullet : MonoBehaviour
 
                 if (owner == "Player")
                 {
-                    // Access the Enemy script attached to the enemy game object
-                    Enemy enemy = collider.gameObject.GetComponent<Enemy>();
+                    if (collider.gameObject.CompareTag("Enemy"))
+                    {
+                        // Access the Enemy script attached to the enemy game object
+                        Enemy enemy = collider.gameObject.GetComponent<Enemy>();
 
-                    // Call the method to decrease health
-                    enemy.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                        // Call the method to decrease health
+                        enemy.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                    }
+                    else if (collider.gameObject.CompareTag("Alien"))
+                    {
+                        // Access the Alien script attached to the enemy game object
+                        Alien alien = collider.gameObject.GetComponent<Alien>();
+
+                        // Call the method to decrease health
+                        alien.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                    }
                 }
-                else if (owner == "Enemy")
+                else if (collider.gameObject.CompareTag("Player") && owner == "Enemy")
                 {
                     Attributes AttributesScript = collider.gameObject.GetComponent<Attributes>();
 
                     AttributesScript.DecreaseHealth(damage); // 10 or any amount of health to decrease
+                }
+                else if (collider.gameObject.CompareTag("Alien") && owner == "Player")
+                {
+
                 }
             }
             
