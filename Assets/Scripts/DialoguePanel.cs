@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 public class DialogueEntry
@@ -13,12 +14,36 @@ public class DialogueEntry
 public class DialoguePanel : MonoBehaviour
 {
     public List<DialogueEntry> dialogueTree = new List<DialogueEntry>();
-    
+    public TMP_Text nameText;
+    public TMP_Text sentenceText;
+
+    private int currentDialogueIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentDialogueIndex = 0;
+        nameText.text = dialogueTree[currentDialogueIndex].name;
+        sentenceText.text = dialogueTree[currentDialogueIndex].sentence;
     }
+
+    ///////////////////////
+    // exit dialogue TBD //
+    ///////////////////////
+    void UpdateDialogue(int jumpTo = 0)
+    {
+        if (jumpTo == 0)
+        {
+            currentDialogueIndex++;
+        }
+        else
+        {
+            currentDialogueIndex = jumpTo;
+        }
+        nameText.text = dialogueTree[currentDialogueIndex].name;
+        sentenceText.text = dialogueTree[currentDialogueIndex].sentence;
+    }
+
     void PauseGame()
     {
         Time.timeScale = 0;

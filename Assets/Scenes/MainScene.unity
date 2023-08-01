@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 106562608}
   - component: {fileID: 106562607}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PressETMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 740500635}
   - component: {fileID: 740500634}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NameTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 1035704410}
   - component: {fileID: 1035704409}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DialogueTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2972,7 +2972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1734407387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3009,7 +3009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3047,9 +3047,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTree:
-  - name: 
-    sentence: 
+  - name: test
+    sentence: test sentence
     jumpTo: 0
+  nameText: {fileID: 740500634}
+  sentenceText: {fileID: 1035704409}
 --- !u!1 &1762148842
 GameObject:
   m_ObjectHideFlags: 0
