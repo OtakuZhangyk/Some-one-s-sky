@@ -84,6 +84,7 @@ public class Enemy : MonoBehaviour
     {
         heal -= amountOfDamage;
         Debug.Log(heal);
+        // died
         if (heal <= 0)
         {
             Destroy(gameObject);
@@ -93,6 +94,8 @@ public class Enemy : MonoBehaviour
             // call roll item
             ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
             itemManagerScript.rollItems();
+            // give gold
+            player.GetComponent<Attributes>().GiveGold(gold);
         }
         if (!foundPlayer)
         {

@@ -27,7 +27,7 @@ class item {
 
 public class ItemManager : MonoBehaviour
 {
-    public GameObject canvas;
+    public GameObject itemSelectPanel;
     public GameObject character;
     
 
@@ -42,9 +42,9 @@ public class ItemManager : MonoBehaviour
     void Start()
     {
         // get buttons
-        button1 = canvas.transform.Find("Button1").gameObject;
-        button2 = canvas.transform.Find("Button2").gameObject;
-        button3 = canvas.transform.Find("Button3").gameObject;
+        button1 = itemSelectPanel.transform.Find("Button1").gameObject;
+        button2 = itemSelectPanel.transform.Find("Button2").gameObject;
+        button3 = itemSelectPanel.transform.Find("Button3").gameObject;
         
         itemList.Add(new item {index = 0, name = "Lazor Gun", damage = 1, attackSpeed = 1, bulletSpeed = 1});
         itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 10, autoHP = 1, defend = 0.9f});
@@ -115,10 +115,10 @@ public class ItemManager : MonoBehaviour
         while (item3 == item2 || item3 == item1)
             item3 = Random.Range(0,itemListLength);
         
-        void showButtonChangeText(GameObject button, int itemIndex)
+        void ChangeButtonText(GameObject button, int itemIndex)
         {
             // show buttons
-            button.SetActive(true);
+            //button.SetActive(true);
             // pass item index
             ItemButton itemButtonScript = button.GetComponent<ItemButton>();
             itemButtonScript.itemIndex = itemIndex;
@@ -132,18 +132,19 @@ public class ItemManager : MonoBehaviour
             effectTMP.text = itemList[itemIndex].effectDescription;
         }
 
-        showButtonChangeText(button1, item1);
-        showButtonChangeText(button2, item2);
-        showButtonChangeText(button3, item3);
+        ChangeButtonText(button1, item1);
+        ChangeButtonText(button2, item2);
+        ChangeButtonText(button3, item3);
+        // show item select panel and buttons
+        itemSelectPanel.SetActive(true);
     }
 
 
     public void giveItem(int itemIndex)
     {
-        // hide buttons
-        button1.SetActive(false);
-        button2.SetActive(false);
-        button3.SetActive(false);
+        // hide item select panel and buttons
+        itemSelectPanel.SetActive(false);
+
         Debug.Log("chose item " + itemList[itemIndex].name);
 
         Attributes AttributesScript = character.GetComponent<Attributes>();
