@@ -3046,6 +3046,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8a70705aa04874f9c55f85c48121cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTree:
+  - name: 
+    sentence: 
+    jumpTo: 0
 --- !u!1 &1762148842
 GameObject:
   m_ObjectHideFlags: 0

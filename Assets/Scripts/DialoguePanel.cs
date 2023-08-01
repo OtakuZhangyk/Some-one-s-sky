@@ -2,8 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class showDialogue : MonoBehaviour
+[System.Serializable]
+public class DialogueEntry
 {
+    public string name;
+    public string sentence;
+    public int jumpTo;
+}
+
+public class DialoguePanel : MonoBehaviour
+{
+    public List<DialogueEntry> dialogueTree = new List<DialogueEntry>();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +23,7 @@ public class showDialogue : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+
     void ResumeGame()
     {
         Time.timeScale = 1;
@@ -27,6 +38,7 @@ public class showDialogue : MonoBehaviour
     {
         ResumeGame();
     }
+
     // Update is called once per frame
     void Update()
     {
