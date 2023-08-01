@@ -98,7 +98,7 @@ public class Attributes : MonoBehaviour
         Debug.Log("Player HP: " + currentHP);
         if (currentHP <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

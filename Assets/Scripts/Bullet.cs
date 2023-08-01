@@ -24,10 +24,7 @@ public class Bullet : MonoBehaviour
 
             if (collider.gameObject.CompareTag("Bullet"))
             {
-                if (collider.gameObject.GetComponent<Bullet>().owner == owner)
-                {
-                    return;
-                }
+                return;
             }
             // destroy bullet
             Destroy(gameObject);
