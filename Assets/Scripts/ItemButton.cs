@@ -18,26 +18,6 @@ public class ItemButton : MonoBehaviour
         itemManagerScript.giveItem(itemIndex);
     }
 
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
-    }
-
-    void OnEnable()
-    {
-        PauseGame();
-    }
-
-    void OnDisable()
-    {
-        ResumeGame();
-    }
-
     // Update is called once per frame
     void Update()
     {

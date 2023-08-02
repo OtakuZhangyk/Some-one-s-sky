@@ -29,6 +29,7 @@ public class Attributes : MonoBehaviour
     public int bulletLevelModifier;
     
     public float currentHP;
+    public int gold;
 
     public List<int> items;
 
@@ -100,6 +101,11 @@ public class Attributes : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void GiveGold(int amount)
+    {
+        gold += amount;
     }
 
 
