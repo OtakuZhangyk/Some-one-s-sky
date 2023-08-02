@@ -153,17 +153,19 @@ public class ItemManager : MonoBehaviour
         AttributesScript.damageModifier += itemList[itemIndex].damage;
         AttributesScript.attackSpeedModifier += itemList[itemIndex].attackSpeed;
         AttributesScript.GetAttackSpeed();
+
+        float oldHPMax = AttributesScript.GetHPMax();
+
         AttributesScript.HPMaxModifier += itemList[itemIndex].HPMax;
 
         //After item was given, check if hpmax is changed by the item. If so, change hpmax and currenthp
-        float oldHPMax = AttributesScript.currentHPMax;
-        AttributesScript.currentHPMax = AttributesScript.GetHPMax();
-        if (oldHPMax != AttributesScript.currentHPMax)
+        
+        if (oldHPMax != AttributesScript.GetHPMax())
         {
-            Debug.Log("Hpmax is changed from" + oldHPMax + "to" + AttributesScript.currentHPMax);
-            if (AttributesScript.currentHP > AttributesScript.currentHPMax)
+            Debug.Log("Hpmax is changed from" + oldHPMax + "to" + AttributesScript.GetHPMax());
+            if (AttributesScript.currentHP > AttributesScript.GetHPMax())
             {
-                AttributesScript.currentHP = AttributesScript.currentHPMax;
+                AttributesScript.currentHP = AttributesScript.GetHPMax();
             }
         }
 

@@ -66,7 +66,7 @@ MonoBehaviour:
   player: {fileID: 0}
   gameManager: {fileID: 0}
   gold: 10
-  rate: 0
+  rate: 0.05
   heal: 100
   damage: 5
   attackSpeed: 1
@@ -212,6 +212,7 @@ MonoBehaviour:
   baseBulletLevel: 0
   bulletLevelModifier: 0
   currentHP: 0
+  currentHPMax: 0
   gold: 0
   items: 
 --- !u!114 &7527836031661266821

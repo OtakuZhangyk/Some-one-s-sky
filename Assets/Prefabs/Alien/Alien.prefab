@@ -213,8 +213,8 @@ MonoBehaviour:
   HP: 1000
   speed: 3
   showKeyEDistance: 3
-  gold: 0
-  rate: 0
+  gold: 100
+  rate: 1
   damage: 20
   attackSpeed: 1.5
   bulletSpeed: 12

@@ -24,13 +24,13 @@ public class Alien : MonoBehaviour
     private float backSpeed;
 
     private GameObject childKeyE;
-    private bool friendly;
+    private int friendly;
     // Start is called before the first frame update
     void Start()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
         childKeyE = transform.GetChild(0).gameObject;
-        friendly = true;
+        friendly = 5;
 
         xSpeed = Random.Range(-4,5) * speed * 0.25f;
         if (xSpeed == 0.0f)
@@ -54,7 +54,7 @@ public class Alien : MonoBehaviour
         }*/
         // calculate distance between self and player
         float distance = Vector3.Distance(player.transform.position, transform.position);
-        if (friendly)
+        if (friendly > 0)
         {
             // move to y+
             transform.Translate(new Vector3(0.0f, 0.5f * speed, 0.0f) * Time.deltaTime);
@@ -127,18 +127,31 @@ public class Alien : MonoBehaviour
             
             // random drop rate, TBD
 
-            // call roll item
-            ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
-            itemManagerScript.rollItems();
+            // random drop rate, TBD
+            if (Random.value < rate)
+            {
+                // call roll item
+                ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
+                itemManagerScript.rollItems();
+            }
+            float resourceMultiply = player.GetComponent<Attributes>().GetResourceMultiple();
+            Debug.Log("resourceMultiple = "+resourceMultiply);
+            // give gold
+            player.GetComponent<Attributes>().GiveGold((int)(gold * resourceMultiply));
         }
         if (owner == "Player")
         {
-            friendly = false;
-            LookAtMouse LookAtScript = GetComponent<LookAtMouse>();
-            LookAtScript.enabled = true;
-            // keep firing script enabled
-            Fire FireScript = GetComponent<Fire>();
-            FireScript.enabled = true;
+            friendly -= 1;
+            if (friendly <= 0)
+            {
+                LookAtMouse LookAtScript = GetComponent<LookAtMouse>();
+                LookAtScript.enabled = true;
+                // keep firing script enabled
+                Fire FireScript = GetComponent<Fire>();
+                FireScript.enabled = true;
+                // hide key E
+                childKeyE.SetActive(false);
+            }
         }
     }
 }

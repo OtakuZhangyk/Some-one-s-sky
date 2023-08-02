@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
             transform.Translate(new Vector3(0.0f, speed, 0.0f) * Time.deltaTime);
 
             // enemy found player
-            if(distance < alartDistance)
+            if (distance < alartDistance)
             {
                 foundPlayer = true;
                 LookAtMouse LookAtScript = GetComponent<LookAtMouse>();
@@ -90,10 +90,12 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             
             // random drop rate, TBD
-
-            // call roll item
-            ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
-            itemManagerScript.rollItems();
+            if (Random.value < rate)
+            {
+                // call roll item
+                ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
+                itemManagerScript.rollItems();
+            }
             float resourceMultiply = player.GetComponent<Attributes>().GetResourceMultiple();
             Debug.Log("resourceMultiple = "+resourceMultiply);
             // give gold
