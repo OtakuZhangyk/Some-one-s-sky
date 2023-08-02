@@ -10,6 +10,31 @@ public class StorePage : MonoBehaviour
         
     }
 
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    void OnEnable()
+    {
+        PauseGame();
+    }
+
+    void OnDisable()
+    {
+        ResumeGame();
+    }
+
+    public void OnClick_ReturnButton()
+    {
+        gameObject.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
