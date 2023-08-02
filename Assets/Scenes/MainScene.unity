@@ -4542,7 +4542,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4147023544641759357, guid: 823a3341e03d6d7479f9731490881d86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1864677440}
   m_SourcePrefab: {fileID: 100100000, guid: 823a3341e03d6d7479f9731490881d86, type: 3}
 --- !u!1 &1440158920
 GameObject:
@@ -5859,6 +5862,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4147023544641759357, guid: 823a3341e03d6d7479f9731490881d86, type: 3}
   m_PrefabInstance: {fileID: 1435203122}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1864677440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864677435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c78986c69f0aa4b99c00ce247fe32f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairTexture: {fileID: 2800000, guid: 5960056f1a158354c9d34267efa08f77, type: 3}
+  hotSpot: {x: 32, y: 32}
+  cursorMode: 0
 --- !u!1 &1888436706
 GameObject:
   m_ObjectHideFlags: 0

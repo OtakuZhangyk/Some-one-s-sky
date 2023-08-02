@@ -5,22 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PressEToContinue : MonoBehaviour
 {
+    public SceneTransitionManager sceneTransitionManager;
+    public string nextSceneName;
     // Start is called before the first frame update
     void Start()
     {
         
-    }
-
-    public void LoadNextScene()
-    {
-        // Get the current Scene
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        // Get the index of the next Scene
-        int nextSceneIndex = currentScene.buildIndex + 1;
-
-        // Load the next Scene
-        SceneManager.LoadScene(nextSceneIndex);
     }
 
     // Update is called once per frame
@@ -28,7 +18,8 @@ public class PressEToContinue : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
-            LoadNextScene();
+            sceneTransitionManager.FadeAndLoadScene(nextSceneName);
+            this.enabled = false;
         }
     }
 
