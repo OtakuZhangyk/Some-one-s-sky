@@ -176,7 +176,7 @@ public class ItemManager : MonoBehaviour
         AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
         AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
         AttributesScript.bulletSpeedModifier += itemList[itemIndex].bulletSpeed;
-        AttributesScript.defendModifier += itemList[itemIndex].defend;
+        AttributesScript.defendModifier *= itemList[itemIndex].defend;//defend = base defend * defend modifer
 
         AttributesScript.bulletLevelModifier += itemList[itemIndex].bulletLevel;
 
