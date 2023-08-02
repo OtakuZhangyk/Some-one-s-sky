@@ -96,7 +96,9 @@ public class Attributes : MonoBehaviour
     // called on getting hit 
     public void DecreaseHealth(float amount)
     {
-        currentHP -= amount;
+        currentHP -= (amount * GetDefend());
+        //Debug.Log("Player defend : " + GetDefend());
+        //Debug.Log("Player decrease " + amount * GetDefend());
         Debug.Log("Player HP: " + currentHP);
         if (currentHP <= 0)
         {
