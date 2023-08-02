@@ -47,12 +47,12 @@ public class ItemManager : MonoBehaviour
         button3 = itemSelectPanel.transform.Find("Button3").gameObject;
         
         itemList.Add(new item {index = 0, name = "Lazor Gun", damage = 1, attackSpeed = 1, bulletSpeed = 1});
-        itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 10, autoHP = 1, defend = 0.9f});
+        itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 1.1f, autoHP = 1, defend = 0.9f});
         itemList.Add(new item {index = 2, name = "Overclock Mode", damage = 2, attackSpeed = 1, autoHP = -2, defend = 0.8f});
         itemList.Add(new item {index = 3, name = "Dimensional Siphon", 
             description = "A forbidden technology that drains resources from parallel universes.", 
-            effectDescription = "Increases resource multiple by 2, but reduces HPmax by 10%.", 
-            resourceMultiple = 2, HPMax = 0.9f});
+            effectDescription = "Increases resource multiple by 0.5, but reduces HPmax by 10%.", 
+            resourceMultiple = 0.5f, HPMax = 0.9f});
         itemList.Add(new item
         {
             index = 4,
@@ -154,7 +154,22 @@ public class ItemManager : MonoBehaviour
         AttributesScript.attackSpeedModifier += itemList[itemIndex].attackSpeed;
         AttributesScript.GetAttackSpeed();
         AttributesScript.HPMaxModifier += itemList[itemIndex].HPMax;
+
+        //After item was given, check if hpmax is changed by the item. If so, change hpmax and currenthp
+        float oldHPMax = AttributesScript.currentHPMax;
+        AttributesScript.currentHPMax = AttributesScript.GetHPMax();
+        if (oldHPMax != AttributesScript.currentHPMax)
+        {
+            Debug.Log("Hpmax is changed from" + oldHPMax + "to" + AttributesScript.currentHPMax);
+            if (AttributesScript.currentHP > AttributesScript.currentHPMax)
+            {
+                AttributesScript.currentHP = AttributesScript.currentHPMax;
+            }
+        }
+
         AttributesScript.resourceMultipleModifier += itemList[itemIndex].resourceMultiple;
+
+
         AttributesScript.autoHPModifier += itemList[itemIndex].autoHP;
         AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
         AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
