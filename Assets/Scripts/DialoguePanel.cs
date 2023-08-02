@@ -16,6 +16,7 @@ public class DialoguePanel : MonoBehaviour
     public List<DialogueEntry> dialogueTree = new List<DialogueEntry>();
     public TMP_Text nameText;
     public TMP_Text sentenceText;
+    public GameObject StorePanel;
 
     private int currentDialogueIndex;
 
@@ -32,7 +33,12 @@ public class DialoguePanel : MonoBehaviour
     ///////////////////////
     void UpdateDialogue(int jumpTo = 0)
     {
-        if (jumpTo == 0)
+        if (jumpTo == -1)
+        {
+            gameObject.SetActive(false);
+            StorePanel.SetActive(true);
+        }
+        else if (jumpTo == 0)
         {
             currentDialogueIndex++;
         }
@@ -67,6 +73,9 @@ public class DialoguePanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Interact"))
+        {
+            UpdateDialogue(dialogueTree[currentDialogueIndex].jumpTo);
+        }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KeyE : MonoBehaviour
 {
+    public GameObject dialoguePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,8 @@ public class KeyE : MonoBehaviour
         if (Input.GetButtonDown("Interact"))
         {
             // show panel
-            Debug.Log("Interacting with KeyE");
+            //Debug.Log("Interacting with KeyE");
+            dialoguePanel.SetActive(true);
         }
     }
     
