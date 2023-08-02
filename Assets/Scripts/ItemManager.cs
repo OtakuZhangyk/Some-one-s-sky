@@ -167,10 +167,10 @@ public class ItemManager : MonoBehaviour
             }
         }
 
-        AttributesScript.resourceMultipleModifier += itemList[itemIndex].resourceMultiple;
-
+        AttributesScript.resourceMultipleModifier += itemList[itemIndex].resourceMultiple;//implement in enemy.cs
 
         AttributesScript.autoHPModifier += itemList[itemIndex].autoHP;
+
         AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
         AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
         AttributesScript.bulletSpeedModifier += itemList[itemIndex].bulletSpeed;
