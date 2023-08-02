@@ -29,6 +29,7 @@ public class Attributes : MonoBehaviour
     public int bulletLevelModifier;
     
     public float currentHP;
+    public float currentHPMax;
     public int gold;
 
     public List<int> items;

@@ -94,8 +94,10 @@ public class Enemy : MonoBehaviour
             // call roll item
             ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
             itemManagerScript.rollItems();
+            float resourceMultiply = player.GetComponent<Attributes>().GetResourceMultiple();
+            Debug.Log("resourceMultiple = "+resourceMultiply);
             // give gold
-            player.GetComponent<Attributes>().GiveGold(gold);
+            player.GetComponent<Attributes>().GiveGold((int)(gold * resourceMultiply));
         }
         if (!foundPlayer)
         {
