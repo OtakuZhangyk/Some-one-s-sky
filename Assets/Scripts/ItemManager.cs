@@ -85,8 +85,8 @@ public class ItemManager : MonoBehaviour
             index = 7,
             name = "Nebula Medikit",
             description = "An advanced medikit infused with regenerative particles found in nebulae.",
-            effectDescription = "Boosts auto recover HP by 30%, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
-            autoHP = 1.3f,
+            effectDescription = "Boosts auto recover HP by 10 per second, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
+            autoHP = 10f,
             HPMax = 1.1f
         });
 

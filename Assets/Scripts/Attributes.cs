@@ -70,7 +70,7 @@ public class Attributes : MonoBehaviour
 
     public float GetAutoHP()
     {
-        return baseAutoHP * autoHPModifier;
+        return baseAutoHP + autoHPModifier;
     }
 
     public float GetBulletNumber()
@@ -104,6 +104,15 @@ public class Attributes : MonoBehaviour
         }
     }
 
+    public void IncreaseHealth(float amount)
+    {
+        currentHP += amount;
+        if (currentHP > currentHPMax)
+        {
+            currentHP = currentHPMax;
+        }
+    }
+
     public void GiveGold(int amount)
     {
         gold += amount;
@@ -111,8 +120,12 @@ public class Attributes : MonoBehaviour
 
 
     // Update is called once per frame
+
+    float autohp;
     void Update()
     {
-        
+        autohp = GetAutoHP();
+        IncreaseHealth(autohp * Time.deltaTime);
+        Debug.Log(autohp);
     }
 }
