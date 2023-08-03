@@ -234,7 +234,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6783621113363728342, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
   m_PrefabInstance: {fileID: 1543522613}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &798669319
+--- !u!114 &798669320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,10 +243,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 798669315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68080237f5adf454caef2c572a2c58ad, type: 3}
+  m_Script: {fileID: 11500000, guid: e1ad44081513ca84c8c72733e3cb1712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 105
+  seconds: 5.5
+  sceneName: MainScene
 --- !u!1 &1034849150
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,18 +345,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5510473297330026007, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510473297330026007, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510473297330026007, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510473297330026007, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.08
       objectReference: {fileID: 0}
@@ -395,10 +384,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 5510473297330026007, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6783621113363728342, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
       propertyPath: m_Name
       value: PlayerSample (1)
@@ -409,5 +394,5 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6783621113363728342, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 798669319}
+      addedObject: {fileID: 798669320}
   m_SourcePrefab: {fileID: 100100000, guid: d39488e826d818b43b8d1ef2f8bf69b3, type: 3}
