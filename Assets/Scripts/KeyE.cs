@@ -10,8 +10,9 @@ public class KeyE : MonoBehaviour
     {
         
     }
-
     // Update is called once per frame
+
+    int meetingTimes = 0;//whether player met the alien or not
     void Update()
     {
         if (Input.GetButtonDown("Interact"))
@@ -19,6 +20,12 @@ public class KeyE : MonoBehaviour
             // show panel
             //Debug.Log("Interacting with KeyE");
             dialoguePanel.SetActive(true);
+            if (meetingTimes > 5)
+            {
+                dialoguePanel.GetComponent<DialoguePanel>().UpdateDialogue(6);
+            }
+
+            meetingTimes++;
         }
     }
     
