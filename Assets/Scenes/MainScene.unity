@@ -4827,9 +4827,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Alien profile
-
-    TBD'
+  m_text: "Alien profile\n\nSpecies: Gantil\r\n\r\nHome Planet: Nubulox\r\n\r\nNotable
+    Affiliation: Grand Gantil Trade Fleet\n\nThe Gantils' unique neural architecture
+    allows them to multitask effectively, making them proficient traders and negotiators.
+    \n\nOne of the most notable accomplishments of the Gantil species is the establishment
+    of the Grand Gantil Trade Fleet. This interstellar consortium, led by the most
+    skilled and experienced Gantil merchants, travels across the galaxies, trading
+    in a multitude of commodities. It's a symbol of the Gantil's commercial prowess
+    and their vital role in the cosmic economy."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4859,8 +4864,8 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 14
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
