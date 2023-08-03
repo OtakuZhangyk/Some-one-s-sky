@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/InMotherShip.unity
     guid: 12bd281b68c246c4d919fa4f21d47481
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: d75e0695c2516bc4f969af5fd94e70fc
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 38f8f3f819b9de64187a5ac1dd9a08b2
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene2.unity
+    guid: 40fa9cf8029d28448a9700bcc24301e2
   m_configObjects: {}

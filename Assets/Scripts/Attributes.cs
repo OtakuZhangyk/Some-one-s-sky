@@ -34,6 +34,8 @@ public class Attributes : MonoBehaviour
 
     public List<int> items;
 
+    public GameObject gameOverPanel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -102,7 +104,9 @@ public class Attributes : MonoBehaviour
         Debug.Log("Player HP: " + currentHP);
         if (currentHP <= 0)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            // show gameover panel
+            gameOverPanel.SetActive(true);
         }
     }
 

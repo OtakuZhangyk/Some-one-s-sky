@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackGroundSpawn : MonoBehaviour
 {
     public GameObject backGroundPrefab;
-    public GameObject player;
+    //public GameObject player;
 
     // player in Xth background(horizontal), Yth background(vertical)
     private int playerX;
@@ -58,28 +58,28 @@ public class BackGroundSpawn : MonoBehaviour
     {
         int curplayerX;
         int curplayerY;
-        if (player.transform.position.x > 0)
+        if (transform.position.x > 0)
         {
-            curplayerX = ((int)player.transform.position.x + 20) / 40;
+            curplayerX = ((int)transform.position.x + 20) / 40;
         }
         else
         {
-            curplayerX = ((int)player.transform.position.x - 20) / 40;
+            curplayerX = ((int)transform.position.x - 20) / 40;
         }
-        if (player.transform.position.y > 0)
+        if (transform.position.y > 0)
         {
-            curplayerY = ((int)player.transform.position.y + 20) / 40;
+            curplayerY = ((int)transform.position.y + 20) / 40;
         }
         else
         {
-            curplayerY = ((int)player.transform.position.y - 20) / 40;
+            curplayerY = ((int)transform.position.y - 20) / 40;
         }
         if (curplayerX != playerX || curplayerY != playerY)
         {
             playerX = curplayerX;
             playerY = curplayerY;
             Debug.Log("playerX: " + playerX + " playerY: " + playerY);
-            Debug.Log(player.transform.position.x + "," + player.transform.position.y);
+            Debug.Log(transform.position.x + "," + transform.position.y);
             SpawnBackGround();
             DespawnBackGround();
         }
