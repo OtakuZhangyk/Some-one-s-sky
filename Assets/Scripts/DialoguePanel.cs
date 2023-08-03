@@ -19,6 +19,7 @@ public class DialoguePanel : MonoBehaviour
     public GameObject StorePanel;
 
     private int currentDialogueIndex;
+    public bool firstMeeting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class DialoguePanel : MonoBehaviour
     ///////////////////////
     // exit dialogue TBD //
     ///////////////////////
-    void UpdateDialogue(int jumpTo = 0)
+    public void UpdateDialogue(int jumpTo = 0)
     {
         if (jumpTo == -1)
         {

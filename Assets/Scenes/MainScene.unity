@@ -5222,9 +5222,13 @@ MonoBehaviour:
     sentence: ' Indeed it does. Our ship carries valuable resources and artifacts
       from various trading posts. Here is some of them!'
     jumpTo: -1
+  - name: Mubamu
+    sentence: We meet again human! How can I help you?
+    jumpTo: -1
   nameText: {fileID: 740500634}
   sentenceText: {fileID: 1035704409}
   StorePanel: {fileID: 1211366030}
+  firstMeeting: 0
 --- !u!1 &1762148842
 GameObject:
   m_ObjectHideFlags: 0
