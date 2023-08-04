@@ -138,6 +138,6 @@ public class Attributes : MonoBehaviour
     {
         autohp = GetAutoHP();
         IncreaseHealth(autohp * Time.deltaTime);
-        Debug.Log(autohp);
+        //Debug.Log(autohp);
     }
 }
