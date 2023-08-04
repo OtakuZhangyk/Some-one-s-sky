@@ -22,7 +22,7 @@ public class item {
     public float moveSpeed = 0;
     public int bulletLevel = 0;
     public float bulletSpeed = 0;
-    public float defend = 1.0f;//hurt rate
+    public float defend = 0;//hurt rate
 
     public int cost = 50;
 }
@@ -223,7 +223,7 @@ public class ItemManager : MonoBehaviour
             AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
             AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
             AttributesScript.bulletSpeedModifier += itemList[itemIndex].bulletSpeed;
-            AttributesScript.defendModifier *= itemList[itemIndex].defend;//defend = base defend * defend modifer
+            AttributesScript.defendModifier += itemList[itemIndex].defend;//defend = base defend * defend modifer
 
             AttributesScript.bulletLevelModifier += itemList[itemIndex].bulletLevel;
             return true;
@@ -260,7 +260,7 @@ public class ItemManager : MonoBehaviour
             AttributesScript.baseBulletNumber += storeItemList[itemIndex - 100].bulletNumber;
             AttributesScript.moveSpeedModifier += storeItemList[itemIndex - 100].moveSpeed;
             AttributesScript.bulletSpeedModifier += storeItemList[itemIndex - 100].bulletSpeed;
-            AttributesScript.defendModifier *= storeItemList[itemIndex - 100].defend;//defend = base defend * defend modifer
+            AttributesScript.defendModifier += storeItemList[itemIndex - 100].defend;//defend = base defend * defend modifer
 
             AttributesScript.bulletLevelModifier += storeItemList[itemIndex - 100].bulletLevel;
             
