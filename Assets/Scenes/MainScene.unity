@@ -5790,7 +5790,7 @@ MonoBehaviour:
     sentence: 'Ah, a human vessel. An unexpected pleasure. This is Merchant Mubamu
       of the Grand Gantil Trade Fleet. '
     jumpTo: 0
-  - name: player
+  - name: Ivan
     sentence: Pleasure to meet you, Merchant Mubamu. I've heard a lot about the Gantil
       and your trading skills.
     jumpTo: 0
@@ -5798,7 +5798,7 @@ MonoBehaviour:
     sentence: ' You flatter us, Captain. It is true, the Gantil are well versed in
       the art of trade. It''s our lifeblood and the foundation of our civilization.'
     jumpTo: 0
-  - name: Player
+  - name: Ivan
     sentence: I can see that. We're interested in establishing trading relations
       with your fleet, if that's a possibility.
     jumpTo: 0
