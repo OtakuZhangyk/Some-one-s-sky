@@ -104,7 +104,9 @@ public class Attributes : MonoBehaviour
     {
         currentHP -= (amount * GetDefend());
         audioSource.clip = hurtSound;
+        audioSource.volume = 0.2f;
         audioSource.Play();
+        
         //Debug.Log("Player defend : " + GetDefend());
         //Debug.Log("Player decrease " + amount * GetDefend());
         Debug.Log("Player HP: " + currentHP);

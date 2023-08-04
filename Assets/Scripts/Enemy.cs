@@ -87,7 +87,9 @@ public class Enemy : MonoBehaviour
     {
         heal -= amountOfDamage;
         audioSource.clip = enemyhurtSound;
+        audioSource.volume = 0.5f;
         audioSource.Play();
+        
         Debug.Log(heal);
         // died
         if (heal <= 0)

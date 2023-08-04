@@ -25,6 +25,7 @@ public class NPCSpawner : MonoBehaviour
     public float alienCost = 50f;
     public float spawnPointRecovery = 1f;
 
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,12 @@ public class NPCSpawner : MonoBehaviour
         spawnPoint += spawnPointRecovery * Time.deltaTime;
         SpawnNPCs();
         DespawnNPCs();
+        timer += Time.deltaTime;
+        if (timer >= 60.0f)
+        {
+            spawnPointRecovery += 1f;
+            timer = 0;
+        }
     }
 
     void SpawnNPCs()
@@ -126,6 +133,18 @@ public class NPCSpawner : MonoBehaviour
             {
                 Destroy(enemy);
                 spawnPoint += enemyCost;
+            }
+        }
+
+        // Get all aliens in the scene
+        GameObject[] aliens = GameObject.FindGameObjectsWithTag("Alien");
+        foreach (GameObject alien in aliens)
+        {
+            // Despawn if too far from the player
+            if ((alien.transform.position - transform.position).magnitude > despawnRadius)
+            {
+                Destroy(alien);
+                spawnPoint += alienCost;
             }
         }
     }

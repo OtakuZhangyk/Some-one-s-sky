@@ -126,6 +126,7 @@ public class Alien : MonoBehaviour
         HP -= amountOfDamage;
 
         audioSource.clip = alienHurtSound;
+        audioSource.volume = 0.5f;
         audioSource.Play();
 
         Debug.Log(HP);

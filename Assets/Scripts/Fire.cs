@@ -96,6 +96,7 @@ public class Fire : MonoBehaviour
                 SpawnBullet();//angle, direction);
                 // play shooting sound
                 audioSource.clip = shootSound;
+                audioSource.volume = 1.0f;
                 audioSource.Play();
                 lastFire = 0.0f;
             }
@@ -110,11 +111,13 @@ public class Fire : MonoBehaviour
                 if(owner == "Enemy")
                 {
                     audioSource.clip = enemyShootSound;
+                    audioSource.volume = 1.0f;
                     audioSource.Play();
                 }
                 else
                 {
                     audioSource.clip = alienShootSound;
+                    audioSource.volume = 1.0f;
                     audioSource.Play();
                 }
             }
