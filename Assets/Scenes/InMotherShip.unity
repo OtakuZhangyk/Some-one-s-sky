@@ -411,7 +411,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 399, y: -217}
-  m_SizeDelta: {x: 102, y: 39.5}
+  m_SizeDelta: {x: 113, y: 39.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536999058
 MonoBehaviour:
@@ -748,8 +748,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Launch
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eed3d684153fb9e42910ce7f913f6e41, type: 2}
+  m_sharedMaterial: {fileID: -3552951611229337698, guid: eed3d684153fb9e42910ce7f913f6e41, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -894,8 +894,8 @@ MonoBehaviour:
     the taking. Gear up, Ivan - the Golden Horde has a bounty on their heads, and
     the Galactic Predator is coming for her gold."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eed3d684153fb9e42910ce7f913f6e41, type: 2}
+  m_sharedMaterial: {fileID: -3552951611229337698, guid: eed3d684153fb9e42910ce7f913f6e41, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.1
+  m_fontSize: 19.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
