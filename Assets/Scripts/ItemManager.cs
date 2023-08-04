@@ -45,7 +45,7 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemList.Add(new item {index = 0, name = "Lazor Gun", damage = 1, attackSpeed = 1, bulletSpeed = 1});
+        itemList.Add(new item {index = 0, name = "Lazor Gun", description = "",damage = 1, attackSpeed = 1, bulletSpeed = 1});
         itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 1.1f, autoHP = 1, defend = 0.9f});
         itemList.Add(new item {index = 2, name = "Overclock Mode", damage = 2, attackSpeed = 1, autoHP = -2, defend = 0.8f});
         itemList.Add(new item {index = 3, name = "Dimensional Siphon", 
@@ -58,7 +58,7 @@ public class ItemManager : MonoBehaviour
             name = "Stardust Shell",
             description = "An armor piece crafted from the remnants of fallen stars.",
             effectDescription = "Increases the ship's max HP by 20%. Offers a 15% boost in the ship's defend rate due to its stardust composition, making it harder for enemy projectiles to penetrate.",
-            HPMax = 1.2f,
+            HPMax = 0.2f,
             defend = 0.85f
         });
         itemList.Add(new item
@@ -67,8 +67,8 @@ public class ItemManager : MonoBehaviour
             name = "Meteorite Thruster",
             description = "A propulsion engine designed using the dense matter found in meteorites.",
             effectDescription = "Increases the ship's move speed by 30%, allowing you to evade enemy fire and travel through the map at a faster pace. Also, it improves bullet speed by 20% due to the explosive force it creates.",
-            moveSpeed = 1.3f,
-            bulletSpeed = 1.2f
+            moveSpeed = 0.3f,
+            bulletSpeed = 0.2f
         });
         itemList.Add(new item
         {
@@ -76,8 +76,8 @@ public class ItemManager : MonoBehaviour
             name = "Plasma Infuser",
             description = "A high-tech device that injects plasma into your weapon systems.",
             effectDescription = "Increases damage by 25% by supercharging your weapons with volatile plasma. Also, it boosts attack speed by 10% due to improved energy flow. ",
-            damage = 1.25f,
-            attackSpeed = 1.1f
+            damage = 0.25f,
+            attackSpeed = 0.1f
         });
         itemList.Add(new item
         {
