@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 106820998985125309}
   - component: {fileID: 3400602519959494494}
   - component: {fileID: 3828987043154019517}
+  - component: {fileID: 334219778921093644}
+  - component: {fileID: 4352317796623290888}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -105,6 +107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4262995024743419156, guid: d18c096869914ef41a35190fceed0794, type: 3}
+  shootSound: {fileID: 8300000, guid: 68d4c9b1ba688bc4aa074d56728a43bd, type: 3}
+  enemyShootSound: {fileID: 8300000, guid: ef8ecf670b11a8e47abad88b8b42ec1b, type: 3}
+  alienShootSound: {fileID: 8300000, guid: ec6c536e333fa7d409d7d183a079919f, type: 3}
   timeBetweenFires: 0.3
 --- !u!114 &4542358363710064093
 MonoBehaviour:
@@ -217,25 +222,28 @@ MonoBehaviour:
   baseDamage: 10
   baseAttackSpeed: 2
   baseHPMax: 100
-  baseResourceMultiple: 0
+  baseResourceMultiple: 1
   baseAutoHP: 0
   baseBulletNumber: 0
   baseMoveSpeed: 5
   baseBulletSpeed: 10
-  baseDefend: 0
+  baseDefend: 1
   damageModifier: 1
   attackSpeedModifier: 2
   HPMaxModifier: 1
-  resourceMultipleModifier: 0
+  resourceMultipleModifier: 1
   autoHPModifier: 0
   bulletNumberModifier: 0
   moveSpeedModifier: 1
   bulletSpeedModifier: 1
-  defendModifier: 0
+  defendModifier: 1
   baseBulletLevel: 0
   bulletLevelModifier: 0
   currentHP: 100
+  gold: 0
   items: 
+  gameOverPanel: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: e96f72db8d619ed49952f64ac01818cd, type: 3}
 --- !u!114 &106820998985125309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,13 +257,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3311045375507740130, guid: c408a730f38298b4ca1f21a2a2c0581c, type: 3}
+  alienPrefab: {fileID: 3311045375507740130, guid: 838211cbaef81f44f9054a15187ba7d8, type: 3}
   gameManager: {fileID: 0}
+  DialoguePanel: {fileID: 0}
   spawnRadius: 80
-  safeRadius: 12
+  safeRadius: 10
   despawnRadius: 120
-  maxEnemies: 10
-  spawnPoint: 100
+  maxEnemies: 50
+  maxAliens: 3
+  alienRatio: 0.05
+  spawnPoint: 1000
   enemyCost: 10
+  alienCost: 50
   spawnPointRecovery: 1
 --- !u!95 &3400602519959494494
 Animator:
@@ -291,3 +304,112 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alienProfilePanel: {fileID: 0}
+--- !u!114 &334219778921093644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679787528188282402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de805afc2eb7e37448ab92007a2980f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGroundPrefab: {fileID: 7988143725550333901, guid: 10bc32ee205bf204c92ab31c3ef656e6, type: 3}
+--- !u!82 &4352317796623290888
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679787528188282402}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 68d4c9b1ba688bc4aa074d56728a43bd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
