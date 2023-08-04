@@ -8,6 +8,10 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float damage;
     public string owner;
+    //public AudioClip playerBulletTouchSound;
+    //public AudioClip enemyBulletTouchSound;
+    //public AudioClip alienBulletTouchSound;
+    //private AudioSource audioSource;
 
     float lastSeconds = 10f;
     float timer = 0f;
@@ -41,6 +45,9 @@ public class Bullet : MonoBehaviour
 
                         // Call the method to decrease health
                         enemy.DecreaseHealth(damage); // 10 or any amount of health to decrease
+
+                        //audioSource.clip = playerBulletTouchSound;
+                        //audioSource.Play();
                     }
                     else if (collider.gameObject.CompareTag("Alien"))
                     {
@@ -49,6 +56,9 @@ public class Bullet : MonoBehaviour
 
                         // Call the method to decrease health
                         alien.DecreaseHealth(damage, owner); // 10 or any amount of health to decrease
+
+                        //audioSource.clip = playerBulletTouchSound;
+                        //audioSource.Play();
                     }
                 }
                 else if (owner == "Enemy")
@@ -58,6 +68,9 @@ public class Bullet : MonoBehaviour
                         Attributes AttributesScript = collider.gameObject.GetComponent<Attributes>();
 
                         AttributesScript.DecreaseHealth(damage); // 10 or any amount of health to decrease
+
+                        //audioSource.clip = enemyBulletTouchSound;
+                        //audioSource.Play();
                     }
                 }
                 else if (owner == "Alien")
@@ -67,16 +80,20 @@ public class Bullet : MonoBehaviour
                         Attributes AttributesScript = collider.gameObject.GetComponent<Attributes>();
 
                         AttributesScript.DecreaseHealth(damage); // 10 or any amount of health to decrease
+
+                        //audioSource.clip = alienBulletTouchSound;
+                        //audioSource.Play();
                     }
                 }
             }
+
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

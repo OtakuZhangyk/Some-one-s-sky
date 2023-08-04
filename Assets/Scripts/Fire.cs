@@ -5,6 +5,10 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public AudioClip shootSound;
+    public AudioClip enemyShootSound;
+    public AudioClip alienShootSound;
+    private AudioSource audioSource;
     public float timeBetweenFires;
     float lastFire = 0.0f; // time between last fired and current
     //CharacterController controller;
@@ -47,6 +51,7 @@ public class Fire : MonoBehaviour
     void Start()
     {
         //controller = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
         // determine the owner of the bullet by tag
         owner = gameObject.tag;
         if (owner == "Enemy")
@@ -89,6 +94,9 @@ public class Fire : MonoBehaviour
             if (Input.GetButton("Fire1") && lastFire >= timeBetweenFires)
             {
                 SpawnBullet();//angle, direction);
+                // play shooting sound
+                audioSource.clip = shootSound;
+                audioSource.Play();
                 lastFire = 0.0f;
             }
         }
@@ -97,7 +105,18 @@ public class Fire : MonoBehaviour
             if (lastFire >= timeBetweenFires)
             {
                 SpawnBullet();
+
                 lastFire = 0.0f;
+                if(owner == "Enemy")
+                {
+                    audioSource.clip = enemyShootSound;
+                    audioSource.Play();
+                }
+                else
+                {
+                    audioSource.clip = alienShootSound;
+                    audioSource.Play();
+                }
             }
         
         }

@@ -24,7 +24,9 @@ public class Enemy : MonoBehaviour
     private bool foundPlayer;
     private float backSpeed;
 
-    
+    public AudioClip enemyhurtSound;//audio
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
         foundPlayer = false;
         backSpeed = -0.25f * speed;
         Debug.Log(heal);
+        audioSource = GetComponent<AudioSource>();
     }
     
     // Update is called once per frame
@@ -83,6 +86,8 @@ public class Enemy : MonoBehaviour
     public void DecreaseHealth(float amountOfDamage)
     {
         heal -= amountOfDamage;
+        audioSource.clip = enemyhurtSound;
+        audioSource.Play();
         Debug.Log(heal);
         // died
         if (heal <= 0)

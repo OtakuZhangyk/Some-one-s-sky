@@ -26,6 +26,9 @@ public class Alien : MonoBehaviour
     private GameObject childKeyE;
     private int friendly;
     // Start is called before the first frame update
+
+    public AudioClip alienHurtSound;//audio
+    private AudioSource audioSource;
     void Start()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,6 +39,7 @@ public class Alien : MonoBehaviour
         if (xSpeed == 0.0f)
             xSpeed = speed * 0.25f;
         backSpeed = -0.25f * speed;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -120,6 +124,10 @@ public class Alien : MonoBehaviour
     public void DecreaseHealth(float amountOfDamage, string owner)
     {
         HP -= amountOfDamage;
+
+        audioSource.clip = alienHurtSound;
+        audioSource.Play();
+
         Debug.Log(HP);
         if (HP <= 0)
         {

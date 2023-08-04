@@ -36,11 +36,15 @@ public class Attributes : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public AudioClip hurtSound;//audio
+    private AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
         GetAttackSpeed();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public float GetDamage()
@@ -99,6 +103,8 @@ public class Attributes : MonoBehaviour
     public void DecreaseHealth(float amount)
     {
         currentHP -= (amount * GetDefend());
+        audioSource.clip = hurtSound;
+        audioSource.Play();
         //Debug.Log("Player defend : " + GetDefend());
         //Debug.Log("Player decrease " + amount * GetDefend());
         Debug.Log("Player HP: " + currentHP);

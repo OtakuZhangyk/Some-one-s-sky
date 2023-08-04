@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     //Static instance of GameManager which allows it to be accessed by any other script.
     public static GameManager instance = null;
+    public AudioClip backgroundMusic;
+    private AudioSource audioSource;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -29,7 +31,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = backgroundMusic;
+        audioSource.loop = true; // 
     }
 
     // Update is called once per frame
