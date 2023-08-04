@@ -86,7 +86,7 @@ public class ItemManager : MonoBehaviour
             description = "An advanced medikit infused with regenerative particles found in nebulae.",
             effectDescription = "Boosts auto recover HP by 10 per second, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
             autoHP = 10f,
-            HPMax = 1.1f
+            HPMax = 0.1f
         });
 
         itemListLength = itemList.Count;
@@ -223,7 +223,7 @@ public class ItemManager : MonoBehaviour
             AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
             AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
             AttributesScript.bulletSpeedModifier += itemList[itemIndex].bulletSpeed;
-            AttributesScript.defendModifier += itemList[itemIndex].defend;//defend = base defend * defend modifer
+            AttributesScript.defendModifier *= itemList[itemIndex].defend;//defend = base defend * defend modifer
 
             AttributesScript.bulletLevelModifier += itemList[itemIndex].bulletLevel;
             return true;
@@ -260,7 +260,7 @@ public class ItemManager : MonoBehaviour
             AttributesScript.baseBulletNumber += storeItemList[itemIndex - 100].bulletNumber;
             AttributesScript.moveSpeedModifier += storeItemList[itemIndex - 100].moveSpeed;
             AttributesScript.bulletSpeedModifier += storeItemList[itemIndex - 100].bulletSpeed;
-            AttributesScript.defendModifier += storeItemList[itemIndex - 100].defend;//defend = base defend * defend modifer
+            AttributesScript.defendModifier *= storeItemList[itemIndex - 100].defend;//defend = base defend * defend modifer
 
             AttributesScript.bulletLevelModifier += storeItemList[itemIndex - 100].bulletLevel;
             
