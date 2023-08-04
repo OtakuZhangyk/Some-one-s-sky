@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 5.5
-  sceneName: InMotherShip
+  sceneName: InMotherShip2
 --- !u!1 &1034849150
 GameObject:
   m_ObjectHideFlags: 0

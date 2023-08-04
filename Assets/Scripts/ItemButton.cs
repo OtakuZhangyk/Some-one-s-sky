@@ -16,9 +16,14 @@ public class ItemButton : MonoBehaviour
     public void onChoseItem()
     {
         ItemManager itemManagerScript = gameManager.GetComponent<ItemManager>();
-        itemManagerScript.giveItem(itemIndex);
-
-
+        bool isGiven = itemManagerScript.giveItem(itemIndex);
+        if (isGiven)
+        {
+            if (transform.parent.name == "StorePanel")
+            {
+                transform.parent.gameObject.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame

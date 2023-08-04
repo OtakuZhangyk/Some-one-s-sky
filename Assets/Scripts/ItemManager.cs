@@ -6,7 +6,8 @@ using TMPro;
 //Tells Random to use the Unity Engine random number generator.
 using Random = UnityEngine.Random;
 
-class item {
+[System.Serializable]
+public class item {
     public int index;
     public string name = "Test Item";
     public string description = "Test Description";
@@ -22,6 +23,8 @@ class item {
     public int bulletLevel = 0;
     public float bulletSpeed = 0;
     public float defend = 1.0f;//hurt rate
+
+    public int cost = 50;
 }
 
 
@@ -29,23 +32,19 @@ public class ItemManager : MonoBehaviour
 {
     public GameObject itemSelectPanel;
     public GameObject character;
+    public GameObject storePanel;
     
 
-    private List<item> itemList = new List<item>();//all items store in this list
+    public List<item> itemList = new List<item>();//all items store in this list
     private int itemListLength;
 
-    private GameObject button1;
-    private GameObject button2;
-    private GameObject button3;
+    public List<item> storeItemList = new List<item>();//all items store in this list
+    private int storeItemListLength;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        // get buttons
-        button1 = itemSelectPanel.transform.Find("Button1").gameObject;
-        button2 = itemSelectPanel.transform.Find("Button2").gameObject;
-        button3 = itemSelectPanel.transform.Find("Button3").gameObject;
-        
         itemList.Add(new item {index = 0, name = "Lazor Gun", damage = 1, attackSpeed = 1, bulletSpeed = 1});
         itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 1.1f, autoHP = 1, defend = 0.9f});
         itemList.Add(new item {index = 2, name = "Overclock Mode", damage = 2, attackSpeed = 1, autoHP = -2, defend = 0.8f});
@@ -91,8 +90,12 @@ public class ItemManager : MonoBehaviour
         });
 
         itemListLength = itemList.Count;
-        // Debug
-        //rollItems();
+        
+        
+        storeItemList.Add(new item {index = 100, name = "Test1", damage = 1, attackSpeed = 1, bulletSpeed = 1, cost = 50});
+        storeItemList.Add(new item {index = 101, name = "Test2", damage = 1, attackSpeed = 1, bulletSpeed = 1, cost = 100});
+        storeItemList.Add(new item {index = 102, name = "Test3", damage = 1, attackSpeed = 1, bulletSpeed = 1, cost = 150});
+        storeItemListLength = storeItemList.Count;
     }
 
     
@@ -105,7 +108,7 @@ public class ItemManager : MonoBehaviour
     // giveItem() change values in character.attributes
 
     // roll three items
-    public void rollItems()
+    public void rollItems(bool isStore = false)
     {
         int item1 = Random.Range(0,itemListLength);
         int item2 = Random.Range(0,itemListLength);
@@ -115,91 +118,155 @@ public class ItemManager : MonoBehaviour
         while (item3 == item2 || item3 == item1)
             item3 = Random.Range(0,itemListLength);
         
-        void ChangeButtonText(GameObject button, int itemIndex)
+        if (isStore)
         {
-            // show buttons
-            //button.SetActive(true);
+            item1 = Random.Range(0,storeItemListLength);
+            item2 = Random.Range(0,storeItemListLength);
+            while (item2 == item1)
+                item2 = Random.Range(0,storeItemListLength);
+            item3 = Random.Range(0,storeItemListLength);
+            while (item3 == item2 || item3 == item1)
+                item3 = Random.Range(0,storeItemListLength);
+        }
+        
+        void ChangeButtonText(string buttonName, int itemIndex)
+        {
+            GameObject button;
+            if (!isStore)
+            {
+                button = itemSelectPanel.transform.Find(buttonName).gameObject;
+            }
+            else
+            {
+                button = storePanel.transform.Find(buttonName).gameObject;
+            }
             // pass item index
             ItemButton itemButtonScript = button.GetComponent<ItemButton>();
-            itemButtonScript.itemIndex = itemIndex;
+            if (!isStore)
+                itemButtonScript.itemIndex = itemIndex;
+            else
+                itemButtonScript.itemIndex = itemIndex + 100;
             // get TMPs
             TMP_Text nameTMP = button.transform.Find("NameTMP").GetComponent<TMP_Text>();
             TMP_Text descriptionTMP = button.transform.Find("DescriptionTMP").GetComponent<TMP_Text>();
             TMP_Text effectTMP = button.transform.Find("EffectTMP").GetComponent<TMP_Text>();
             // change texts in buttons 
-            nameTMP.text = itemList[itemIndex].name;
-            descriptionTMP.text = itemList[itemIndex].description;
-            effectTMP.text = itemList[itemIndex].effectDescription;
+            if (!isStore)
+            {
+                nameTMP.text = itemList[itemIndex].name;
+                descriptionTMP.text = itemList[itemIndex].description;
+                effectTMP.text = itemList[itemIndex].effectDescription;
+            }
+            else
+            {
+                nameTMP.text = storeItemList[itemIndex].name;
+                descriptionTMP.text = storeItemList[itemIndex].description;
+                effectTMP.text = storeItemList[itemIndex].effectDescription;
+                TMP_Text costTMP = button.transform.Find("CostTMP").GetComponent<TMP_Text>();
+                costTMP.text = storeItemList[itemIndex].cost.ToString();
+                Debug.Log(storeItemList.Count);
+            }
         }
 
-        ChangeButtonText(button1, item1);
-        ChangeButtonText(button2, item2);
-        ChangeButtonText(button3, item3);
+        ChangeButtonText("Button1", item1);
+        ChangeButtonText("Button2", item2);
+        ChangeButtonText("Button3", item3);
         // show item select panel and buttons
-        itemSelectPanel.SetActive(true);
+        if (!isStore)
+            itemSelectPanel.SetActive(true);
     }
 
 
-    public void giveItem(int itemIndex)
+    public bool giveItem(int itemIndex)
     {
-        // hide item select panel and buttons
-        itemSelectPanel.SetActive(false);
-
-        Debug.Log("chose item " + itemList[itemIndex].name);
+        
+        if (itemIndex < 100)
+        {
+            // hide item select panel and buttons
+            itemSelectPanel.SetActive(false);
+            Debug.Log("chose item " + itemList[itemIndex].name);
+        }
+        else
+        {
+            Debug.Log("itemIndex " + itemIndex);
+            Debug.Log("chose store item "  + storeItemList[itemIndex - 100].name);
+        }
 
         Attributes AttributesScript = character.GetComponent<Attributes>();
         AttributesScript.items.Add(itemIndex);
 
-        AttributesScript.damageModifier += itemList[itemIndex].damage;
-        AttributesScript.attackSpeedModifier += itemList[itemIndex].attackSpeed;
-        AttributesScript.GetAttackSpeed();
-
-        float oldHPMax = AttributesScript.GetHPMax();
-
-        AttributesScript.HPMaxModifier += itemList[itemIndex].HPMax;
-
-        //After item was given, check if hpmax is changed by the item. If so, change hpmax and currenthp
-        
-        if (oldHPMax != AttributesScript.GetHPMax())
+        if (itemIndex < 100)
         {
-            Debug.Log("Hpmax is changed from" + oldHPMax + "to" + AttributesScript.GetHPMax());
-            if (AttributesScript.currentHP > AttributesScript.GetHPMax())
+            AttributesScript.damageModifier += itemList[itemIndex].damage;
+            AttributesScript.attackSpeedModifier += itemList[itemIndex].attackSpeed;
+            AttributesScript.GetAttackSpeed();
+
+            float oldHPMax = AttributesScript.GetHPMax();
+
+            AttributesScript.HPMaxModifier += itemList[itemIndex].HPMax;
+
+            //After item was given, check if hpmax is changed by the item. If so, change hpmax and currenthp
+            
+            if (oldHPMax != AttributesScript.GetHPMax())
             {
-                AttributesScript.currentHP = AttributesScript.GetHPMax();
+                Debug.Log("Hpmax is changed from" + oldHPMax + "to" + AttributesScript.GetHPMax());
+                if (AttributesScript.currentHP > AttributesScript.GetHPMax())
+                {
+                    AttributesScript.currentHP = AttributesScript.GetHPMax();
+                }
             }
+
+            AttributesScript.resourceMultipleModifier += itemList[itemIndex].resourceMultiple;//implement in enemy.cs
+
+            AttributesScript.autoHPModifier += itemList[itemIndex].autoHP;
+
+            AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
+            AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
+            AttributesScript.bulletSpeedModifier += itemList[itemIndex].bulletSpeed;
+            AttributesScript.defendModifier *= itemList[itemIndex].defend;//defend = base defend * defend modifer
+
+            AttributesScript.bulletLevelModifier += itemList[itemIndex].bulletLevel;
+            return true;
         }
+        else
+        {
+            if (AttributesScript.gold < storeItemList[itemIndex - 100].cost)
+            {
+                return false;
+            }
+            AttributesScript.damageModifier += storeItemList[itemIndex - 100].damage;
+            AttributesScript.attackSpeedModifier += storeItemList[itemIndex - 100].attackSpeed;
+            AttributesScript.GetAttackSpeed();
 
-        AttributesScript.resourceMultipleModifier += itemList[itemIndex].resourceMultiple;//implement in enemy.cs
+            float oldHPMax = AttributesScript.GetHPMax();
 
-        AttributesScript.autoHPModifier += itemList[itemIndex].autoHP;
+            AttributesScript.HPMaxModifier += storeItemList[itemIndex - 100].HPMax;
 
-        AttributesScript.baseBulletNumber += itemList[itemIndex].bulletNumber;
-        AttributesScript.moveSpeedModifier += itemList[itemIndex].moveSpeed;
-        AttributesScript.bulletSpeedModifier += itemList[itemIndex].bulletSpeed;
-        AttributesScript.defendModifier *= itemList[itemIndex].defend;//defend = base defend * defend modifer
+            //After item was given, check if hpmax is changed by the item. If so, change hpmax and currenthp
+            
+            if (oldHPMax != AttributesScript.GetHPMax())
+            {
+                Debug.Log("Hpmax is changed from" + oldHPMax + "to" + AttributesScript.GetHPMax());
+                if (AttributesScript.currentHP > AttributesScript.GetHPMax())
+                {
+                    AttributesScript.currentHP = AttributesScript.GetHPMax();
+                }
+            }
 
-        AttributesScript.bulletLevelModifier += itemList[itemIndex].bulletLevel;
+            AttributesScript.resourceMultipleModifier += storeItemList[itemIndex - 100].resourceMultiple;//implement in enemy.cs
 
+            AttributesScript.autoHPModifier += storeItemList[itemIndex - 100].autoHP;
 
-        //change attribute modifiers
-        
-        /*
-        // current attributes = base atteibutes +/* modifier
-        public float damageModifier;
-        public float attackSpeedModifier;
-        public float HPMaxModifier;
-        public float resourceMultipleModifier;//rate of get more resources
-        public float autoHPModifier;
-        public int bulletNumberModifier;
-        public float moveSpeedModifier;
-        public float bulletSpeedModifier;
-        public float defendModifier;//hurt rate
-        
-        public int baseBulletLevel;
-        public int bulletLevelModifier;
-        
-        public float currentHP;
-        */
+            AttributesScript.baseBulletNumber += storeItemList[itemIndex - 100].bulletNumber;
+            AttributesScript.moveSpeedModifier += storeItemList[itemIndex - 100].moveSpeed;
+            AttributesScript.bulletSpeedModifier += storeItemList[itemIndex - 100].bulletSpeed;
+            AttributesScript.defendModifier *= storeItemList[itemIndex - 100].defend;//defend = base defend * defend modifer
+
+            AttributesScript.bulletLevelModifier += storeItemList[itemIndex - 100].bulletLevel;
+            
+            AttributesScript.gold -= storeItemList[itemIndex - 100].cost;
+            return true;
+        }
 
     }
 
