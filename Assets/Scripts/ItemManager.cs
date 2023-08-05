@@ -22,7 +22,7 @@ public class item {
     public float moveSpeed = 0;
     public int bulletLevel = 0;
     public float bulletSpeed = 0;
-    public float defend = 0;//hurt rate
+    public float defend = 1;//hurt rate
 
     public int cost = 50;
 }
@@ -45,9 +45,9 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemList.Add(new item {index = 0, name = "Lazor Gun", description = "",damage = 1, attackSpeed = 1, bulletSpeed = 1});
-        itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 1.1f, autoHP = 1, defend = 0.9f});
-        itemList.Add(new item {index = 2, name = "Overclock Mode", damage = 2, attackSpeed = 1, autoHP = -2, defend = 0.8f});
+        itemList.Add(new item {index = 0, name = "Lazor Gun", description = "",damage = 0.1f, attackSpeed = 0.1f, bulletSpeed = 0.1f});
+        itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 0.1f, autoHP = 1, defend = 0.9f});
+        itemList.Add(new item {index = 2, name = "Overclock Mode", damage = 0.2f, attackSpeed = 0.1f, autoHP = -2, defend = 0.8f});
         itemList.Add(new item {index = 3, name = "Dimensional Siphon", 
             description = "A forbidden technology that drains resources from parallel universes.", 
             effectDescription = "Increases resource multiple by 0.5, but reduces HPmax by 10%.", 
@@ -85,7 +85,7 @@ public class ItemManager : MonoBehaviour
             name = "Nebula Medikit",
             description = "An advanced medikit infused with regenerative particles found in nebulae.",
             effectDescription = "Boosts auto recover HP by 10 per second, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
-            autoHP = 10f,
+            autoHP = 1f,
             HPMax = 0.1f
         });
 
