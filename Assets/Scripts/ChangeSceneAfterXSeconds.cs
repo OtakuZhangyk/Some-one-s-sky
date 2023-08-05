@@ -23,6 +23,8 @@ public class ChangeSceneAfterXSeconds : MonoBehaviour
         {
             triggered = true;
             SceneTransitionManager.Instance.FadeAndLoadScene(sceneName);
+            if (sceneName == "InMotherShip2")
+                BGMPlayer.Instance.DoDestory();
         }
     }
 }

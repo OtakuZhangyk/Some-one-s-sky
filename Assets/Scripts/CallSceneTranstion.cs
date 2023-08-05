@@ -20,4 +20,5 @@ public class CallSceneTranstion : MonoBehaviour
     {
         SceneTransitionManager.Instance.FadeAndLoadScene(sceneName);
     }
+
 }
