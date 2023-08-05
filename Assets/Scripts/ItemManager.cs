@@ -45,9 +45,11 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemList.Add(new item {index = 0, name = "Lazor Gun", description = "",damage = 0.1f, attackSpeed = 0.1f, bulletSpeed = 0.1f});
-        itemList.Add(new item {index = 1, name = "Solar Panel", HPMax = 0.1f, autoHP = 1, defend = 0.9f});
-        itemList.Add(new item {index = 2, name = "Overclock Mode", damage = 0.2f, attackSpeed = 0.1f, autoHP = -2, defend = 0.8f});
+        itemList.Add(new item {index = 0, name = "Lazor Gun", description = "Common advanced lazor gun", effectDescription = "Improve damage by 10%, attackspeed by 10% and bulletspeed by 10%. ",damage = 0.1f, attackSpeed = 0.1f, bulletSpeed = 0.1f});
+        itemList.Add(new item {index = 1, name = "Solar Panel",description = "Energy collecter made by the Federation, standard and powerful", 
+            effectDescription = "Improve max energy by 10%, auto recover energy by 1 point per second and improve defend rate by 10% ", HPMax = 0.1f, autoHP = 1, defend = 0.9f});
+        itemList.Add(new item {index = 2, name = "Overclock Mode", description = "Let the spaceship be in an overloaded state", effectDescription = "Improve damage by 20%, attackspeed by 10%, decrease auto recover energy by 2 points per second, defend rate by 20%.",
+            damage = 0.2f, attackSpeed = 0.1f, autoHP = -2, defend = 0.8f});
         itemList.Add(new item {index = 3, name = "Dimensional Siphon", 
             description = "A forbidden technology that drains resources from parallel universes.", 
             effectDescription = "Increases resource multiple by 0.5, but reduces HPmax by 10%.", 
@@ -66,7 +68,7 @@ public class ItemManager : MonoBehaviour
             index = 5,
             name = "Meteorite Thruster",
             description = "A propulsion engine designed using the dense matter found in meteorites.",
-            effectDescription = "Increases the ship's move speed by 30%, allowing you to evade enemy fire and travel through the map at a faster pace. Also, it improves bullet speed by 20% due to the explosive force it creates.",
+            effectDescription = "Increases the ship's move speed by 30%. Also, it improves bullet speed by 20% due to the explosive force it creates.",
             moveSpeed = 0.3f,
             bulletSpeed = 0.2f
         });
@@ -84,17 +86,130 @@ public class ItemManager : MonoBehaviour
             index = 7,
             name = "Nebula Medikit",
             description = "An advanced medikit infused with regenerative particles found in nebulae.",
-            effectDescription = "Boosts auto recover HP by 10 per second, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
+            effectDescription = "Boosts auto recover HP by 1 point per second, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
             autoHP = 1f,
             HPMax = 0.1f
         });
+        itemList.Add(new item
+        {
+            index = 8,
+            name = "Asteroid Alloy Plating",
+            description = "Armor made from processed asteroid material.",
+            effectDescription = "Increases max energy by 10% and defend rate by 10%. ",
+            defend = 0.9f,
+            HPMax = 0.1f
+        });
 
+        itemList.Add(new item
+        {
+            index = 9,
+            name = "Photon Propeller",
+            description = "A propulsion system that uses emitted photons for thrust.",
+            effectDescription = "Increases movespeed by 10% and bulletspeed by 10%. ",
+            moveSpeed = 0.1f,
+            bulletSpeed = 0.1f
+        });
+
+        itemList.Add(new item
+        {
+            index = 10,
+            name = "Solar Flare Gun",
+            description = " A weapon that harnesses solar energy to fire off heated projectiles.",
+            effectDescription = "Increases damage by 15% and attackspeed by 10%. ",
+            damage = 0.15f,
+            attackSpeed = 0.1f
+        });
+
+        itemList.Add(new item
+        {
+            index = 11,
+            name = "Orbital Medikit",
+            description = " A standard medikit equipped for orbital conditions.",
+            effectDescription = "Increases auto energy recover by 2 points per second and max energy by 10%. ",
+            autoHP = 2f,
+            HPMax = 0.1f
+        });
+
+        itemList.Add(new item
+        {
+            index = 12,
+            name = "Interstellar Pickaxe",
+            description = " A basic tool for mining interstellar resources.",
+            effectDescription = "Increases resource get rate by 20%. ",
+            resourceMultiple = 0.2f
+        });
         itemListLength = itemList.Count;
-        
-        
-        storeItemList.Add(new item {index = 100, name = "Test1", damage = 1, attackSpeed = 1, bulletSpeed = 1, cost = 50});
-        storeItemList.Add(new item {index = 101, name = "Test2", damage = 1, attackSpeed = 1, bulletSpeed = 1, cost = 100});
-        storeItemList.Add(new item {index = 102, name = "Test3", damage = 1, attackSpeed = 1, bulletSpeed = 1, cost = 150});
+
+
+        storeItemList.Add(new item 
+        { 
+            index = 105, 
+            name = "Cosmic Annihilator", 
+            description = "The ultimate weapon that fires a beam of pure, concentrated cosmic energy.", 
+            effectDescription = "Increase damage by a by a cataclysmic 300% and drastically reduces attack speed by 50%", 
+            damage = 3f, 
+            attackSpeed = -0.5f, 
+            cost = 366 
+        });
+
+        storeItemList.Add(new item
+        {
+            index = 106,
+            name = "Starfire Matrix",
+            description = "An advanced system that utilizes the raw energy of starfire.",
+            effectDescription = "Improve attackspeed for 70%, improve bulletspeed for 50% and decrease defend rate by 30%",
+            attackSpeed = 0.7f,
+            bulletSpeed = 0.5f,
+            defend = 1.3f,
+            cost = 240 
+        });
+
+        storeItemList.Add(new item 
+        {
+            index = 107, 
+            name = "Chronos Reactor", 
+            description = "A time-manipulating device that uses the energy of the space-time continuum.",
+            effectDescription = "Improve auto energy recover by 8 points per second but decrease 50% max energy.",
+            autoHP = 8f,
+            HPMax = -0.5f,
+            cost = 230
+        });
+
+        storeItemList.Add(new item
+        {
+            index = 108,
+            name = "Quantum Tachyon Shield",
+            description = "An energy shield operating on tachyonic particles that move faster than light.",
+            effectDescription = "Improve defend rate by 75%, reduce auto energy recover by 6 points per second.",
+            defend = 0.25f,
+            autoHP = -6f,
+            cost = 280,
+        });
+
+        storeItemList.Add(new item
+        {
+            index = 109,
+            name = "Galaxy Forge",
+            description = "An interstellar forge capable of extracting resources from celestial bodies.",
+            effectDescription = "Improve resource get rate by 80%, improve movespeed by 25%, reduce auto energ recover by 1 points per second, decrease defend rate by 20%.",
+            resourceMultiple = 0.8f,
+            autoHP = -1f,
+            defend = 1.2f,
+            moveSpeed = 0.25f,
+            cost = 150,
+        });
+
+        storeItemList.Add(new item
+        {
+            index = 110,
+            name = "Hyperspace Engine",
+            description = "A propulsion engine capable of breaching the boundary between real-space and hyperspace.",
+            effectDescription = "Improve movespeed by 100%, reduce auto energ recover by 1 points per second, decrease max energy by 20%.",
+            autoHP = -1f,
+            HPMax = -0.2f,
+            moveSpeed = 1f,
+            cost = 200,
+        });
         storeItemListLength = storeItemList.Count;
     }
 
