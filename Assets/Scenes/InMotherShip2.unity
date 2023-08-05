@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 751.2, y: 357.5}
+  m_AnchoredPosition: {x: 0, y: 12}
+  m_SizeDelta: {x: 752.4, y: 363.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58611572
 MonoBehaviour:
@@ -181,9 +181,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Survival requires prudence, pilot. \nRemember to manage your power levels
-    more carefully. \nAwait for full system recovery before your next journey. \nWe'll
-    get them next time, commander."
+  m_text: "Survival requires prudence, commander. In the vast expanse of this lawless
+    frontier, even the fearsome Ivan can fall prey to the Golden Horde's schemes.
+    Gather your strength and your wits, and face the challenge once more.\n\n\rRemember
+    to manage your power levels more carefully, Ivan. In the heat of the cosmic chase,
+    every unit of energy can mark the difference between bounty or death. More Aurumite
+    is still waiting, claim it on your next run."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eed3d684153fb9e42910ce7f913f6e41, type: 2}
   m_sharedMaterial: {fileID: -3552951611229337698, guid: eed3d684153fb9e42910ce7f913f6e41, type: 2}
@@ -210,8 +213,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

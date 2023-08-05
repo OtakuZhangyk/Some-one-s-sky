@@ -45,21 +45,52 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemList.Add(new item {index = 0, name = "Lazor Gun", description = "Common advanced lazor gun", effectDescription = "Improve damage by 10%, attackspeed by 10% and bulletspeed by 10%. ",damage = 0.1f, attackSpeed = 0.1f, bulletSpeed = 0.1f});
-        itemList.Add(new item {index = 1, name = "Solar Panel",description = "Energy collecter made by the Federation, standard and powerful", 
-            effectDescription = "Improve max energy by 10%, auto recover energy by 1 point per second and improve defend rate by 10% ", HPMax = 0.1f, autoHP = 1, defend = 0.9f});
-        itemList.Add(new item {index = 2, name = "Overclock Mode", description = "Let the spaceship be in an overloaded state", effectDescription = "Improve damage by 20%, attackspeed by 10%, decrease auto recover energy by 2 points per second, defend rate by 20%.",
-            damage = 0.2f, attackSpeed = 0.1f, autoHP = -2, defend = 0.8f});
-        itemList.Add(new item {index = 3, name = "Dimensional Siphon", 
+        itemList.Add(new item 
+        {
+            index = 0, 
+            name = "Lazor Gun", 
+            description = "Common advanced lazor gun", 
+            effectDescription = "Improve damage by 10%, attackspeed by 10% and bulletspeed by 10%. ",
+            damage = 0.1f, 
+            attackSpeed = 0.1f, 
+            bulletSpeed = 0.1f
+        });
+        itemList.Add(new item 
+        {
+            index = 1, 
+            name = "Solar Panel",
+            description = "Energy collecter made by the Federation, standard and powerful", 
+            effectDescription = "Improve max energy by 10%, auto recover energy by 1 point per second and improve defend rate by 10% ", 
+            HPMax = 0.1f, 
+            autoHP = 1, 
+            defend = 0.9f
+        });
+        itemList.Add(new item 
+        {
+            index = 2, 
+            name = "Overclock Mode", 
+            description = "Let the spaceship be in an overloaded state", 
+            effectDescription = "Improve damage by 20%, attackspeed by 10%, decrease auto recover energy by 2 points per second, defend rate by 20%.",
+            damage = 0.2f, 
+            attackSpeed = 0.1f, 
+            autoHP = -2, 
+            defend = 0.8f
+        });
+        itemList.Add(new item 
+        {
+            index = 3, 
+            name = "Dimensional Siphon", 
             description = "A forbidden technology that drains resources from parallel universes.", 
-            effectDescription = "Increases resource multiple by 0.5, but reduces HPmax by 10%.", 
-            resourceMultiple = 0.5f, HPMax = 0.9f});
+            effectDescription = "Increases resource multiple by 0.5, but reduces energy capacity by 10%.", 
+            resourceMultiple = 0.5f, 
+            HPMax = 0.9f
+        });
         itemList.Add(new item
         {
             index = 4,
             name = "Stardust Shell",
             description = "An armor piece crafted from the remnants of fallen stars.",
-            effectDescription = "Increases the ship's max HP by 20%. Offers a 15% boost in the ship's defend rate due to its stardust composition, making it harder for enemy projectiles to penetrate.",
+            effectDescription = "Increases the ship's energy capacity by 20%. Offers a 15% boost in the ship's defend rate.",
             HPMax = 0.2f,
             defend = 0.85f
         });
@@ -68,7 +99,7 @@ public class ItemManager : MonoBehaviour
             index = 5,
             name = "Meteorite Thruster",
             description = "A propulsion engine designed using the dense matter found in meteorites.",
-            effectDescription = "Increases the ship's move speed by 30%. Also, it improves bullet speed by 20% due to the explosive force it creates.",
+            effectDescription = "Increases the ship's move speed by 30%, and bullet speed by 20%.",
             moveSpeed = 0.3f,
             bulletSpeed = 0.2f
         });
@@ -77,7 +108,7 @@ public class ItemManager : MonoBehaviour
             index = 6,
             name = "Plasma Infuser",
             description = "A high-tech device that injects plasma into your weapon systems.",
-            effectDescription = "Increases damage by 25% by supercharging your weapons with volatile plasma. Also, it boosts attack speed by 10% due to improved energy flow. ",
+            effectDescription = "Increases damage by 25%, and attack speed by 10%. ",
             damage = 0.25f,
             attackSpeed = 0.1f
         });
@@ -86,7 +117,7 @@ public class ItemManager : MonoBehaviour
             index = 7,
             name = "Nebula Medikit",
             description = "An advanced medikit infused with regenerative particles found in nebulae.",
-            effectDescription = "Boosts auto recover HP by 1 point per second, enabling your ship to heal itself faster during combat. Increases max HP by 10% due to the additional vitality granted by nebula particles. ",
+            effectDescription = "Boosts auto recover energy by 1 point per second. Increases energy capacity by 10%. ",
             autoHP = 1f,
             HPMax = 0.1f
         });
@@ -95,7 +126,7 @@ public class ItemManager : MonoBehaviour
             index = 8,
             name = "Asteroid Alloy Plating",
             description = "Armor made from processed asteroid material.",
-            effectDescription = "Increases max energy by 10% and defend rate by 10%. ",
+            effectDescription = "Increases energy capacity by 10% and defend rate by 10%. ",
             defend = 0.9f,
             HPMax = 0.1f
         });
