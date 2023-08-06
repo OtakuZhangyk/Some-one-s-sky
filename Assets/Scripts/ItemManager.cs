@@ -70,7 +70,7 @@ public class ItemManager : MonoBehaviour
             index = 2, 
             name = "Overclock Mode", 
             description = "Let the spaceship be in an overloaded state", 
-            effectDescription = "Improve damage by 20%, attackspeed by 10%, decrease auto recover energy by 2 points per second, defend rate by 20%.",
+            effectDescription = "Improve damage by 20%, attackspeed by 10%, decrease auto energy recover by 2 points per second, defend rate by 20%.",
             damage = 0.2f, 
             attackSpeed = 0.1f, 
             autoHP = -2, 
@@ -203,7 +203,7 @@ public class ItemManager : MonoBehaviour
             effectDescription = "Improve auto energy recover by 8 points per second but decrease 50% max energy.",
             autoHP = 8f,
             HPMax = -0.5f,
-            cost = 230
+            cost = 730
         });
 
         storeItemList.Add(new item
@@ -213,7 +213,7 @@ public class ItemManager : MonoBehaviour
             description = "An energy shield operating on tachyonic particles that move faster than light.",
             effectDescription = "Improve defend rate by 75%, reduce auto energy recover by 6 points per second.",
             defend = 0.25f,
-            autoHP = -6f,
+            autoHP = -4f,
             cost = 280,
         });
 
